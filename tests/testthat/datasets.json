@@ -1,0 +1,613 @@
+{
+  "total": 3,
+  "data": [
+    {
+      "id": "618cfaf9aac4a70022253aaa",
+      "title": "Parc véhicules",
+      "description": "Parc véhicules",
+      "organization": {
+        "id": "611f4a262d8bf3fbfa3a00d0",
+        "title": "MYORGBSI",
+        "description": "myorg",
+        "acronym": "myorg"
+      },
+      "topic": "Transports",
+      "license": "ODbL-1.0",
+      "frequency": "monthly",
+      "created_at": "2020-11-11T11:14:01.097Z",
+      "last_modified": "2021-11-11T11:28:22.016Z",
+      "attachments": [],
+      "datafiles": [
+        {
+          "rid": "49b4b29b-3d0b-43bb-879d-244aeceb876f",
+          "title": "Données de parc 2018",
+          "description": "parc vp 2018",
+          "created_at": "2021-11-11T11:15:55.257Z",
+          "last_modified": "2021-11-11T11:27:39.267Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/49b4b29b-3d0b-43bb-879d-244aeceb876f",
+          "temporal_coverage": {
+            "start": "2015-01-01T00:00:00.000Z",
+            "end": "2017-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2020-11-11T11:15:55.214Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "TYPE_VEHICULE",
+                  "description": "type de véhicule",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "PARC",
+                  "description": "nombre de véhicule",
+                  "unit": "s/u",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            },
+            {
+              "millesime": "2021-11",
+              "date_diffusion": "2021-11-11T11:21:58.308Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "TYPE_VEHICULE",
+                  "description": "type de véhicule",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "PARC",
+                  "description": "nombre de véhicule",
+                  "unit": "s/u",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        },
+        {
+          "rid": "7e6666a6-097d-48c1-845a-1d52eca375e6",
+          "title": "Données de parc 2019",
+          "description": "parc vp 2019",
+          "created_at": "2021-11-11T11:15:22.451Z",
+          "last_modified": "2021-11-11T11:28:22.016Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/7e6666a6-097d-48c1-845a-1d52eca375e6",
+          "temporal_coverage": {
+            "start": "2015-01-01T00:00:00.000Z",
+            "end": "2017-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2021-11-11T11:15:22.411Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "TYPE_VEHICULE",
+                  "description": "type de véhicule",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "PARC",
+                  "description": "nombre de véhicule",
+                  "unit": "s/u",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        }
+      ],
+      "frequency_date": "2021-10-01T00:00:00.000Z",
+      "tags": [
+        "circulation",
+        "transport",
+        "vehicule"
+      ],
+      "spatial": {
+        "zones": [
+          "country:fr",
+          "country-subset:fr:metro"
+        ],
+        "granularity": "fr:region"
+      },
+      "temporal_coverage": {
+        "start": "2015-01-01",
+        "end": "2017-12-31"
+      }
+    },
+    {
+      "id": "618cfa72aac4a70022253bbb",
+      "title": "Données de consommation d'électricité, de gaz naturel",
+      "description": "Données de consommation d'électricité, de gaz naturel",
+      "organization": {
+        "id": "611f4a262d8bf3fbfa3xxxxx",
+        "title": "OTHERORG",
+        "description": "otherorg",
+        "acronym": "otherorg"
+      },
+      "topic": "Énergie",
+      "license": "fr-lo",
+      "frequency": "annual",
+      "created_at": "2021-11-11T11:11:46.916Z",
+      "last_modified": "2021-11-11T11:14:00.929Z",
+      "attachments": [
+        {
+          "rid": "5d48a6e9-c028-47fa-91c0-a0c2c0a44630",
+          "title": "Liste des variables - électricité",
+          "description": "Détail des variables - fichiers électricité",
+          "created_at": "2021-11-11T11:14:00.818Z",
+          "last_modified": "2021-11-11T11:14:00.929Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "url": "http://api.diffusion.dido.fr/files/5d48a6e9-c028-47fa-91c0-a0c2c0a44630"
+        },
+        {
+          "rid": "f4b286b3-6f96-43a0-931f-1d528bada5eb",
+          "title": "Liste des variables",
+          "description": "Détail des variables - gaz",
+          "created_at": "2021-11-11T11:13:59.351Z",
+          "last_modified": "2021-11-11T11:13:59.458Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "url": "http://api.diffusion.dido.fr/files/f4b286b3-6f96-43a0-931f-1d528bada5eb"
+        }
+      ],
+      "datafiles": [
+        {
+          "rid": "98320725-3da7-432c-9cf8-1a63f5cb3db0",
+          "title": "Données de consommation gaz 2019",
+          "description": "Consommations annuelles et nombre de points de livraison de gaz, par secteur d'activité à la maille IRIS",
+          "created_at": "2021-11-11T11:13:40.975Z",
+          "last_modified": "2021-11-11T11:13:41.081Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/98320725-3da7-432c-9cf8-1a63f5cb3db0",
+          "temporal_coverage": {
+            "start": "2018-01-01T00:00:00.000Z",
+            "end": "2019-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2021-11-11T11:13:40.939Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "PRODUCTEUR",
+                  "description": "producteur",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "ENERGIE",
+                  "description": "energie (gaz, électricité)",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "CONSO",
+                  "description": "consommation",
+                  "unit": "MW/h",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        },
+        {
+          "rid": "da927a38-0c67-45d7-b028-1507c61bbc70",
+          "title": "Données de consommation gaz 2018",
+          "description": "Consommations annuelles et nombre de points de livraison de gaz, par secteur d'activité à la maille IRIS",
+          "created_at": "2019-11-11T11:13:08.418Z",
+          "last_modified": "2019-11-11T11:13:08.518Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/da927a38-0c67-45d7-b028-1507c61bbc70",
+          "temporal_coverage": {
+            "start": "2018-01-01T00:00:00.000Z",
+            "end": "2019-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2019-10",
+              "date_diffusion": "2021-11-11T11:13:08.381Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "PRODUCTEUR",
+                  "description": "producteur",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "ENERGIE",
+                  "description": "energie (gaz, électricité)",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "CONSO",
+                  "description": "consommation",
+                  "unit": "MW/h",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        },
+        {
+          "rid": "9ec47e6e-b4e6-4126-96ed-396fc842ce2d",
+          "title": "Données de consommation électricité 2019",
+          "description": "Consommations annuelles et nombre de points de livraison d'électricité, par secteur d'activité à la maille IRIS",
+          "created_at": "2021-11-11T11:12:35.551Z",
+          "last_modified": "2021-11-11T11:12:35.637Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/9ec47e6e-b4e6-4126-96ed-396fc842ce2d",
+          "temporal_coverage": {
+            "start": "2018-01-01T00:00:00.000Z",
+            "end": "2019-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2021-11-11T11:12:35.520Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "PRODUCTEUR",
+                  "description": "producteur",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "ENERGIE",
+                  "description": "energie (gaz, électricité)",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "CONSO",
+                  "description": "consommation",
+                  "unit": "MW/h",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        },
+        {
+          "rid": "b75832af-172a-451f-975e-d5cc8ffaa13a",
+          "title": "Données de consommation électricité 2018",
+          "description": "Consommations annuelles et nombre de points de livraison d'électricité, par secteur d'activité à la maille IRIS",
+          "created_at": "2021-11-11T11:12:02.933Z",
+          "last_modified": "2021-11-11T11:12:03.030Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/b75832af-172a-451f-975e-d5cc8ffaa13a",
+          "temporal_coverage": {
+            "start": "2018-01-01T00:00:00.000Z",
+            "end": "2019-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2021-11-11T11:12:02.892Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "PRODUCTEUR",
+                  "description": "producteur",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "ENERGIE",
+                  "description": "energie (gaz, électricité)",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "CONSO",
+                  "description": "consommation",
+                  "unit": "MW/h",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        }
+      ],
+      "frequency_date": "2021-10-01T00:00:00.000Z",
+      "tags": [
+        "chaleur",
+        "consommation-d-energie",
+        "electricite",
+        "energie",
+        "froid",
+        "gaz-naturel"
+      ],
+      "spatial": {
+        "zones": [
+          "country:fr"
+        ],
+        "granularity": "fr:iris"
+      },
+      "temporal_coverage": {
+        "start": "2018-01-01",
+        "end": "2019-12-31"
+      }
+    },
+    {
+      "id": "618cfaf9aac4a70022253ccc",
+      "title": "Consommation DROM",
+      "description": "consommation électrique dans les DROM",
+      "organization": {
+        "id": "611f4a262d8bf3fbfa3a00d0",
+        "title": "MYORGBSI",
+        "description": "myorg",
+        "acronym": "myorg"
+      },
+      "topic": "Énergie",
+      "license": "ODbL-1.0",
+      "frequency": "monthly",
+      "created_at": "2020-11-11T11:14:01.097Z",
+      "last_modified": "2021-11-11T11:28:22.016Z",
+      "attachments": [],
+      "datafiles": [
+        {
+          "rid": "ae6666a6-097d-48c1-845a-1d52eca375e6",
+          "title": "Consommation électrique DROM sur 2019",
+          "description": "Consommation électrique DROM sur 2019",
+          "created_at": "2021-11-11T11:15:22.451Z",
+          "last_modified": "2021-11-11T11:28:22.016Z",
+          "published": "2020-10-01T00:00:00.000Z",
+          "weburl": "http://localhost:8060/datafile/ae6666a6-097d-48c1-845a-1d52eca375e6",
+          "temporal_coverage": {
+            "start": "2015-01-01T00:00:00.000Z",
+            "end": "2017-12-31T00:00:00.000Z"
+          },
+          "millesimes": [
+            {
+              "millesime": "2020-10",
+              "date_diffusion": "2021-11-11T11:15:22.411Z",
+              "rows": 1,
+              "columns": [
+                {
+                  "name": "DEPARTEMENT",
+                  "description": "département",
+                  "unit": "n/a",
+                  "filters": [
+                    "contains",
+                    "eq",
+                    "ne",
+                    "startsWith",
+                    "endsWith",
+                    "in",
+                    "nin"
+                  ]
+                },
+                {
+                  "name": "CONSO",
+                  "description": "consommation électrique",
+                  "unit": "MW/h",
+                  "filters": [
+                    "eq",
+                    "ne",
+                    "gt",
+                    "gte",
+                    "lt",
+                    "lte",
+                    "in",
+                    "nin"
+                  ]
+                }
+              ],
+              "extendedFilters": [],
+              "geoFields": [],
+              "refs": []
+            }
+          ]
+        }
+      ],
+      "frequency_date": "2021-10-01T00:00:00.000Z",
+      "tags": [
+        "consommation-d-energie",
+        "electricite",
+        "energie"
+      ],
+      "spatial": {
+        "zones": [
+          "country:fr",
+          "country-subset:fr:metro"
+        ],
+        "granularity": "fr:region"
+      },
+      "temporal_coverage": {
+        "start": "2015-01-01",
+        "end": "2017-12-31"
+      }
+    }
+  ],
+  "firstPage": "http://api.diffusion.dido.fr/v1/datasets?page=1&pageSize=all&orderBy=-last_modified",
+  "previousPage": "",
+  "nextPage": "",
+  "lastPage": "http://api.diffusion.dido.fr/v1/datasets?page=1&pageSize=all&orderBy=-last_modified",
+  "page": 1,
+  "pageSize": "all"
+}

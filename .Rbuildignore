@@ -1,2 +1,10 @@
 ^didor\.Rproj$
 ^\.Rproj\.user$
+^doc$
+^Meta$
+^README\.Rmd$
+^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^codecov\.yml$

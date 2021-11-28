@@ -1,0 +1,43 @@
+---
+title: "drawing_energie"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{drawing_energie}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup,  warning = FALSE, message = FALSE}
+library(didor)
+library(tidyverse)
+library(ggplot2)
+```
+
+Download data for gas and electricity consumption
+
+```{r}
+data <- datasets() %>%
+  dido_search('gaz') %>%
+  dido_search('fr:region') %>% 
+  datafiles() %>%
+  get_data(query = c(REGION_CODE = 'in:11,44')) %>% 
+  mutate(CONSO = parse_number(CONSO), PDL = parse_number(PDL)) %>% 
+  group_by(ANNEE, FILIERE, REGION_LIBELLE, REGION_CODE) %>% 
+  summarise(CONSO=sum(CONSO, na.rm=TRUE))
+```
+
+Draw graphic
+
+```{r}
+data %>% 
+  ggplot2::ggplot(aes(x = ANNEE, y = CONSO, colour = FILIERE, shape = FILIERE)) +
+  geom_point() +
+  facet_wrap(~ REGION_LIBELLE)
+```
