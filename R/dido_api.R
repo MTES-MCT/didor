@@ -5,14 +5,16 @@
 #'
 #' @param url empty, url or filename. If no argument is passed, the default
 #'        url is used. file must be compatible with the dido api format for
-#'        datasets as described on
 #'        https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets
+#'        datasets as described on
 #'
 #' @return nothing
 #' @export
 #'
 #' @examples
-#' # get_metadata("datasets.json")
+#' \dontrun{
+#' get_metadata("datasets.json")
+#' }
 #' @import tidyr
 #' @import dplyr
 #' @import tibble

@@ -4,7 +4,8 @@
 #'
 #' Load datasets information in a tibble if needed and return it
 #'
-#' @param data a datafiles tibble (as returned by the `datafiles()` function) or NULL (default)
+#' @param data a datafiles tibble (as returned by the `datafiles()` function)
+#'        or NULL (default)
 #'
 #' @return a tibble of datasets information
 #' @export

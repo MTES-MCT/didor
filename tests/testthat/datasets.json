@@ -39,6 +39,7 @@
                 {
                   "name": "TYPE_VEHICULE",
                   "description": "type de véhicule",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -53,6 +54,7 @@
                 {
                   "name": "PARC",
                   "description": "nombre de véhicule",
+                  "type": "integer",
                   "unit": "s/u",
                   "filters": [
                     "eq",
@@ -78,6 +80,7 @@
                 {
                   "name": "TYPE_VEHICULE",
                   "description": "type de véhicule",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -92,6 +95,7 @@
                 {
                   "name": "PARC",
                   "description": "nombre de véhicule",
+                  "type": "integer",
                   "unit": "s/u",
                   "filters": [
                     "eq",
@@ -132,6 +136,7 @@
                 {
                   "name": "TYPE_VEHICULE",
                   "description": "type de véhicule",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -146,6 +151,7 @@
                 {
                   "name": "PARC",
                   "description": "nombre de véhicule",
+                  "type": "integer",
                   "unit": "s/u",
                   "filters": [
                     "eq",
@@ -241,6 +247,7 @@
                 {
                   "name": "PRODUCTEUR",
                   "description": "producteur",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -255,6 +262,7 @@
                 {
                   "name": "ENERGIE",
                   "description": "energie (gaz, électricité)",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -269,6 +277,7 @@
                 {
                   "name": "CONSO",
                   "description": "consommation",
+                  "type": "number",
                   "unit": "MW/h",
                   "filters": [
                     "eq",
@@ -309,6 +318,7 @@
                 {
                   "name": "PRODUCTEUR",
                   "description": "producteur",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -323,6 +333,7 @@
                 {
                   "name": "ENERGIE",
                   "description": "energie (gaz, électricité)",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -337,6 +348,7 @@
                 {
                   "name": "CONSO",
                   "description": "consommation",
+                  "type": "number",
                   "unit": "MW/h",
                   "filters": [
                     "eq",
@@ -377,6 +389,7 @@
                 {
                   "name": "PRODUCTEUR",
                   "description": "producteur",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -391,6 +404,7 @@
                 {
                   "name": "ENERGIE",
                   "description": "energie (gaz, électricité)",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -405,6 +419,7 @@
                 {
                   "name": "CONSO",
                   "description": "consommation",
+                  "type": "number",
                   "unit": "MW/h",
                   "filters": [
                     "eq",
@@ -445,6 +460,7 @@
                 {
                   "name": "PRODUCTEUR",
                   "description": "producteur",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -459,6 +475,7 @@
                 {
                   "name": "ENERGIE",
                   "description": "energie (gaz, électricité)",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -473,6 +490,7 @@
                 {
                   "name": "CONSO",
                   "description": "consommation",
+                  "type": "number",
                   "unit": "MW/h",
                   "filters": [
                     "eq",
@@ -551,6 +569,7 @@
                 {
                   "name": "DEPARTEMENT",
                   "description": "département",
+                  "type": "string",
                   "unit": "n/a",
                   "filters": [
                     "contains",
@@ -565,6 +584,7 @@
                 {
                   "name": "CONSO",
                   "description": "consommation électrique",
+                  "type": "number",
                   "unit": "MW/h",
                   "filters": [
                     "eq",

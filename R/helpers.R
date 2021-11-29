@@ -33,3 +33,15 @@ build_url <- function(path, default_query = list(), query = list()) {
 #' @importFrom magrittr %>%
 #' @export
 magrittr::`%>%`
+
+#' @importFrom httr headers
+#' @importFrom jsonlite parse_json
+extract_http_error <- function(request) {
+  if (grepl("json", httr::headers(request)$`Content-Type`)) {
+    json <- jsonlite::parse_json(request)
+    error <- paste0(json$message, ": ", str_c(json$errors, ", "))
+  } else {
+    error <- ""
+  }
+  error
+}

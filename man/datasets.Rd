@@ -7,7 +7,8 @@
 datasets(data = NULL)
 }
 \arguments{
-\item{data}{a datafiles tibble (as returned by the \code{datafiles()} function) or NULL (default)}
+\item{data}{a datafiles tibble (as returned by the \code{datafiles()} function)
+or NULL (default)}
 }
 \value{
 a tibble of datasets information

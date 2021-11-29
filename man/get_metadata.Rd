@@ -9,8 +9,8 @@ get_metadata(url = NULL)
 \arguments{
 \item{url}{empty, url or filename. If no argument is passed, the default
 url is used. file must be compatible with the dido api format for
-datasets as described on
-https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets}
+https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets
+datasets as described on}
 }
 \value{
 nothing
@@ -20,5 +20,7 @@ Download information from api of from file passed as argument
 Load those data as tibble
 }
 \examples{
-# get_metadata("datasets.json")
+\dontrun{
+get_metadata("datasets.json")
+}
 }

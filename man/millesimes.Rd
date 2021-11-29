@@ -16,5 +16,7 @@ a tibble of millesimes informations
 Get millesimes informations
 }
 \examples{
-datafiles() \%>\% dido_search("drom") \%>\% millesimes()
+datafiles() \%>\%
+  dido_search("drom") \%>\%
+  millesimes()
 }

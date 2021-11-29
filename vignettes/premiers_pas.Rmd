@@ -112,6 +112,30 @@ knitr::kable(result)
 
 `columns()` nous indique que nous avons bien 3 datafiles et que les colonnes sont toutes communes au 3 datafiles sauf 1. Sans doute un ajout de colonne.
 
+Vous pouvez regarder les fichiers annexes :
+
+```{r}
+result <- datasets() %>%
+  dido_search('gaz') %>% 
+  dido_search('epci') %>%
+  datafiles() %>% 
+  dido_search('gaz') %>%
+  attachments()
+knitr::kable(result)
+```
+
+Et les télécharger :
+
+```
+datasets() %>%
+  dido_search('gaz') %>% 
+  dido_search('epci') %>%
+  datafiles() %>% 
+  dido_search('gaz') %>%
+  attachments() %>%
+  get_attachments(dest = tempdir())
+```
+
 ## télécharger les données
 
 La commande `get_data()` s'occupe de télécharger les différents datafiles et les concatène.

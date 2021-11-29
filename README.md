@@ -55,9 +55,7 @@ knitr::kable(head(result))
 | 976               | Mayotte              | 06           | Mayotte         | 2020  | 19592       | 124040     | NA        | 10852   | 6044              |
 | 971               | Guadeloupe           | 01           | Guadeloupe      | 2019  | 128464      | 217934     | 233765    | 21539   | 160846            |
 
-See
-
--   the [Tutorial](articles/premiers_pas.html) for more information and
-    examples.
--   An [example](articles/drawing_energie.html) for more information and
-    examples.
+See the
+[Tutorial](https://nbc.github.io/didor/articles/premiers_pas.html) and
+the [package homepage](https://nbc.github.io/didor/)for more information
+and examples.
