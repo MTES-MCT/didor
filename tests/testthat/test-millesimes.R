@@ -39,11 +39,13 @@ test_that("last_millesime() stop if wrong input data", {
 # columns
 
 test_that("columns works", {
-  expect_message(col <- datafiles() %>%
-    filter(id == "618cfa72aac4a70022253bbb") %>%
-    columns() %>%
-    replace_na(list(format = "-")),
-    "datafiles: 4")
+  expect_message(
+    col <- datafiles() %>%
+      filter(id == "618cfa72aac4a70022253bbb") %>%
+      columns() %>%
+      replace_na(list(format = "-")),
+    "datafiles: 4"
+  )
 
   expect_equal(nrow(col), 3)
 
@@ -60,10 +62,12 @@ test_that("columns works", {
 })
 
 test_that("columns() stop if multiple millesimes per datafiles", {
-  expect_error(datafiles() %>%
-                 millesimes() %>%
-                 columns(),
-               "include more than one millesime")
+  expect_error(
+    datafiles() %>%
+      millesimes() %>%
+      columns(),
+    "include more than one millesime"
+  )
 })
 
 test_that("columns() stop if wrong input data", {
@@ -75,9 +79,9 @@ test_that("columns() stop if wrong input data", {
 
 test_that("millesime fails if error", {
   expect_error(millesimes(), "need an argument")
-  expect_error(millesimes(c(1,2,3)), "must be a dataframe")
+  expect_error(millesimes(c(1, 2, 3)), "must be a dataframe")
 
-  data <- tibble(row = c(1,2,3))
+  data <- tibble(row = c(1, 2, 3))
   expect_error(millesimes(data), "`rid` column")
 })
 
@@ -86,8 +90,12 @@ test_that("millesime works", {
     filter(rid == "49b4b29b-3d0b-43bb-879d-244aeceb876f") %>%
     millesimes()
 
-  expect_equal(names(millesimes),
-               c("rid", "id", "millesime", "date_diffusion", "rows",
-                 "columns", "extendedFilters", "geoFields", "refs"))
+  expect_equal(
+    names(millesimes),
+    c(
+      "rid", "id", "millesime", "date_diffusion", "rows",
+      "columns", "extendedFilters", "geoFields", "refs"
+    )
+  )
   expect_equal(nrow(millesimes), 2)
 })

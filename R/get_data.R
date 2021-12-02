@@ -1,20 +1,29 @@
 #' Get data
 #'
-#' Get the data of the last millesime of all the datafiles found in data
+#' Get the data of the last millesime of all the datafiles found in data. All
+#' columns are returned as `chr` (see below).
 #'
-#' @param data a tibble issued from `datafiles() or a dataframe with two
-#'        columns `rid` and `millesime`.
+#' You can use `convert()` to convert number and integer.
+#'
+#' For private life reason, data returned by DiDo can be secretize (the value is
+#' replaced by the string "secret") so readr can't determine data type.
+#'
+#' @param data a tibble issued from `datafiles() or a dataframe with two columns
+#'   `rid` and `millesime`.
 #' @param query a query to pass to the API to select columns and filter on
-#'        values.
+#'   values.
 #' @param concat `TRUE`
-#' @param col_types how to convert columns, the default is to use char for
-#'        all columns `cols(.default = "c")`
+#' @param col_types how to convert columns, the default is to use char for all
+#'   columns `cols(.default = "c")`
 #'
 #' @return
 #'
-#' If concat is `TRUE` (default), return a tibble with all data concatenated
-#'     in one tibble
-#' If concat is `FALSE`, return a list of tibbles
+#' If concat is `TRUE` (default), return a tibble with all data concatenated in
+#' one tibble.
+#' If concat is `FALSE`, return a list of tibbles.
+#'
+#' `get_data()` returns only chr
+#'
 #' @export
 #'
 #' @examples
@@ -65,11 +74,15 @@ get_data <- function(data,
     stop("argument include more than one millesime per datafile")
   }
 
-  mill_keys <- select(mill, .data$rid, .data$millesime)
-  list_df <- pmap(mill_keys, ~ get_csv(..1, ..2, query, col_types))
+  millesime_keys <- select(mill, .data$rid, .data$millesime)
+  list_df <- pmap(millesime_keys, ~ get_csv(..1, ..2, query, col_types))
+
+  columns <- millesimes(millesime_keys) %>%
+    columns(quiet = TRUE)
+  attributes <- build_attributes(columns)
 
   if (!concat) {
-    return(list_df)
+    return(purrr::map(list_df, ~ set_attributes(., attributes)))
   }
-  dplyr::bind_rows(list_df)
+  set_attributes(dplyr::bind_rows(list_df), attributes)
 }

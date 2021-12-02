@@ -37,6 +37,7 @@ millesimes <- function(data) {
 #' the count. It allows you to verify millesimes are coherent
 #'
 #' @param data a datafiles tibble (as returned by the `datafiles()` function)
+#' @param quiet logical; suppress message. Default to FALSE
 #'
 #' @return a tibble with columns found in input datafiles and occurrence for
 #'         each column
@@ -48,7 +49,7 @@ millesimes <- function(data) {
 #' @importFrom dplyr select inner_join slice_max
 #' @importFrom tibble as_tibble
 #' @importFrom rlang .data
-columns <- function(data) {
+columns <- function(data, quiet = FALSE) {
   if (missing(data)) {
     stop("`millesimes()` need an argument")
   }
@@ -69,7 +70,9 @@ columns <- function(data) {
   if (nrow(mill_tmp %>% count(.data$rid) %>% filter(n > 1)) > 0) {
     stop("argument include more than one millesime per datafile")
   }
-  message(paste0("nb of datafiles: ", nrow(mill)))
+  if (!quiet) {
+    message(paste0("nb of datafiles: ", nrow(mill)))
+  }
 
   columns <- mill %>%
     select(.data$columns) %>%

@@ -15,9 +15,8 @@ test_that("get_data works with last_millesime input", {
   expect_equal(nb_of_rows, nrow(result))
 
   for (col in names(result)) {
-    expect_named(attributes(result[[col]]), c("description", "unit", "type"))
+    expect_named(attributes(result[[col]]), c("name", "description", "unit", "type", "converted"))
   }
-
 })
 
 test_that("get_data works with datafiles input", {
@@ -53,9 +52,8 @@ test_that("get_data works with concat FALSE", {
   expect_output(str(result), "List of 1")
 
   for (col in names(result[[1]])) {
-    expect_named(attributes(result[[1]][[col]]), c("description", "unit", "type"))
+    expect_named(attributes(result[[1]][[col]]), c("name", "description", "unit", "type", "converted"))
   }
-
 })
 
 test_that("get_data returns NULL or list() when feeded empty tibble", {

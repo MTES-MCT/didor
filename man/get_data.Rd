@@ -12,18 +12,27 @@ get_data(data, query = list(), col_types = cols(.default = "c"), concat = TRUE)
 \item{query}{a query to pass to the API to select columns and filter on
 values.}
 
-\item{col_types}{how to convert columns, the default is to use char for
-all columns \code{cols(.default = "c")}}
+\item{col_types}{how to convert columns, the default is to use char for all
+columns \code{cols(.default = "c")}}
 
 \item{concat}{\code{TRUE}}
 }
 \value{
-If concat is \code{TRUE} (default), return a tibble with all data concatenated
-in one tibble
-If concat is \code{FALSE}, return a list of tibbles
+If concat is \code{TRUE} (default), return a tibble with all data concatenated in
+one tibble.
+If concat is \code{FALSE}, return a list of tibbles.
+
+\code{get_data()} returns only chr
 }
 \description{
-Get the data of the last millesime of all the datafiles found in data
+Get the data of the last millesime of all the datafiles found in data. All
+columns are returned as \code{chr} (see below).
+}
+\details{
+You can use \code{convert()} to convert number and integer.
+
+For private life reason, data returned by DiDo can be secretize (the value is
+replaced by the string "secret") so readr can't determine data type.
 }
 \examples{
 # get all columns

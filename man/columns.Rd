@@ -4,10 +4,12 @@
 \alias{columns}
 \title{Get columns count on millesimes}
 \usage{
-columns(data)
+columns(data, quiet = FALSE)
 }
 \arguments{
 \item{data}{a datafiles tibble (as returned by the \code{datafiles()} function)}
+
+\item{quiet}{logical; suppress message. Default to FALSE}
 }
 \value{
 a tibble with columns found in input datafiles and occurrence for

@@ -23,9 +23,10 @@ library(tidyverse)
 
 # utilisation de ce package
 
-Les commandes les plus importantes de ce package sont `datasets()`, `datafiles()`, `dido_search()` et `get_data()`. 
-`dido_search()` permet de chercher dans les données qui lui sont passées
-`get_data()` permet de télécharcher les données des datafiles passés en arguments.
+Les commandes les plus importantes de ce package sont `datasets()`,
+`datafiles()`, `dido_search()` et `get_data()`. `dido_search()` permet de
+chercher dans les données qui lui sont passées `get_data()` permet de
+télécharcher les données des datafiles passés en arguments.
 
 La méthode :
 
@@ -35,6 +36,7 @@ La méthode :
 1. sélectionner les datafiles intéressants: `dido_search()` et `dplyr::filter()`
 1. verifier que les datafiles sont compatibles: `columns()`
 1. télécharger les données: `get_data()`
+1. les convertir: `convert()`
 
 # récupérer les données de consommation de gaz à la maille EPCI
 
@@ -42,7 +44,7 @@ La méthode :
 
 ```{r}
 result <- datasets()
-knitr::kable(head(result))
+knitr::kable(head(result, n = 2))
 ```
 
 Utilisez `view()` pour regarder un peu les colonnes.
@@ -115,13 +117,13 @@ knitr::kable(result)
 Vous pouvez regarder les fichiers annexes :
 
 ```{r}
-result <- datasets() %>%
+attachments <- datasets() %>%
   dido_search('gaz') %>% 
   dido_search('epci') %>%
   datafiles() %>% 
   dido_search('gaz') %>%
   attachments()
-knitr::kable(result)
+knitr::kable(head(attachments, n=2))
 ```
 
 Et les télécharger :
@@ -141,13 +143,27 @@ datasets() %>%
 La commande `get_data()` s'occupe de télécharger les différents datafiles et les concatène.
 
 ```{r}
-result <- datasets() %>%
+data <- datasets() %>%
   dido_search('gaz') %>% 
   dido_search('epci') %>%
   datafiles() %>% 
   dido_search('gaz') %>%
   get_data()
-knitr::kable(head(result))
+knitr::kable(head(data, n = 2))
 ```
 
 `result` contient maintenant les données des 3 datafiles sur le gaz à la maille EPCI
+
+## convertir les données numériques
+
+Les données peuvent contenir des valeurs secrétisées se présentant sous la forme
+de la chaine `secret`, R ne peut donc pas deviner correctement le type des colonnes.
+
+La commande `convert()` utilise les métadonnées de l'API pour réaliser la
+conversion, les données secrétisées sont retournées en `NA`
+
+```{r}
+converted <- convert(result)
+knitr::kable(head(converted, n = 2))
+```
+

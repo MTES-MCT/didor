@@ -6,7 +6,8 @@ test_that("download_attachments fails if dest dir doesnt't exists", {
 
   expect_error(download_attachment(
     "http://falseurl.com",
-    dest = "/a/directory/that/doesnt/exists"), "doesn't exists")
+    dest = "/a/directory/that/doesnt/exists"
+  ), "doesn't exists")
 })
 
 test_that("download_attachments fails if dest dir doesnt't exists", {
