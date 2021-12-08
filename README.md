@@ -8,7 +8,7 @@ DiDo R package
 <!-- badges: start -->
 
 [<img src="https://www.repostatus.org/badges/latest/wip.svg" target="_blank" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." />](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/nbc/didor/workflows/R-CMD-check/badge.svg)](https://github.com/nbc/didor/actions)
+[![R-CMD-check](https://github.com/MTES-MCT/didor/workflows/R-CMD-check/badge.svg)](https://github.com/MTES-MCT/didor/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/nbc/didor/branch/main/graph/badge.svg)](https://codecov.io/gh/nbc/didor?branch=main)
 <!-- badges: end -->
@@ -27,7 +27,7 @@ You can install development version from GitHub:
 ``` r
 # Install from GitHub
 library(devtools)
-devtools::install_github("nbc/didor")
+devtools::install_github("MTES-MCT/didor")
 ```
 
 ## Example
@@ -56,6 +56,6 @@ knitr::kable(head(result))
 | 971               | Guadeloupe           | 01           | Guadeloupe      | 2019  | 128464      | 217934     | 233765    | 21539   | 160846            |
 
 See the
-[Tutorial](https://nbc.github.io/didor/articles/premiers_pas.html) and
-the [package homepage](https://nbc.github.io/didor/)for more information
-and examples.
+[Tutorial](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
+and the [package homepage](https://mtes-mct.github.io/didor/)for more
+information and examples.
