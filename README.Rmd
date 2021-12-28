@@ -36,12 +36,10 @@ You can install development version from GitHub:
 ```{r, eval = FALSE}
 # Install from GitHub
 library(devtools)
-devtools::install_github("MTES-MCT/didor")
+devtools::install_github("mtes-mct/didor")
 ```
 
 ## Example
-
-This is a basic example which shows you how to solve a common problem:
 
 ```{r examples}
 library(didor)
@@ -55,5 +53,5 @@ result <- datasets() %>%
 knitr::kable(head(result))
 ```
 
-See the [Tutorial](https://mtes-mct.github.io/didor/articles/premiers_pas.html) and the [package homepage](https://mtes-mct.github.io/didor/)for more information and examples.
+See the [Tutorial (in french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html) and the [package homepage](https://mtes-mct.github.io/didor/)for more information and examples.
 

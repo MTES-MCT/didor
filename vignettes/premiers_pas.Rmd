@@ -152,7 +152,7 @@ data <- datasets() %>%
 knitr::kable(head(data, n = 2))
 ```
 
-`result` contient maintenant les données des 3 datafiles sur le gaz à la maille EPCI
+`data` contient maintenant les données des 3 datafiles sur le gaz à la maille EPCI
 
 ## convertir les données numériques
 
@@ -162,8 +162,19 @@ de la chaine `secret`, R ne peut donc pas deviner correctement le type des colon
 La commande `convert()` utilise les métadonnées de l'API pour réaliser la
 conversion, les données secrétisées sont retournées en `NA`
 
-```{r}
-converted <- convert(result)
-knitr::kable(head(converted, n = 2))
-```
+Testons cette conversion sur les ventes mensuelles de produits pétroliers depuis 2017 :
 
+```{r}
+(data <- datasets() %>%
+   dido_search("Données mensuelles.*pétroliers") %>%
+   filter(temporal_coverage_start >= "2017-01-01") %>%
+   datafiles() %>%
+   dido_search("gazole routier") %>%
+   get_data())
+```
+Les variables sont toutes de type `chr`. Pour convertir ces données :
+
+```{r}
+convert(data)
+```
+**Attention**, la conversion s'appuie sur l'usage des attributs qui sont perdues à la première manipulation des tibbles/dataframes. `convert()` doit être fait immédiatement après `get_data()`

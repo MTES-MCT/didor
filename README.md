@@ -27,12 +27,10 @@ You can install development version from GitHub:
 ``` r
 # Install from GitHub
 library(devtools)
-devtools::install_github("MTES-MCT/didor")
+devtools::install_github("mtes-mct/didor")
 ```
 
 ## Example
-
-This is a basic example which shows you how to solve a common problem:
 
 ``` r
 library(didor)
@@ -55,7 +53,7 @@ knitr::kable(head(result))
 | 976               | Mayotte              | 06           | Mayotte         | 2020  | 19592       | 124040     | NA        | 10852   | 6044              |
 | 971               | Guadeloupe           | 01           | Guadeloupe      | 2019  | 128464      | 217934     | 233765    | 21539   | 160846            |
 
-See the
-[Tutorial](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
+See the [Tutorial (in
+french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
 and the [package homepage](https://mtes-mct.github.io/didor/)for more
 information and examples.
