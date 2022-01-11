@@ -35,11 +35,14 @@ get_api_base_path <- function() {
 #'
 #' set a new API base path to use
 #'
-#' @param path the path to set or NULL (default value).
-#'   if set to non `NULL`, set the path
-#'   if `NULL`
+#' @param path or NULL the path to set or NULL to use to default path.
+#'  * if set to non `NULL`, set the value as path
+#'  * if `NULL` set the default path
+#'  `https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1`
 #'
-#' @return nothing
+#'  @details this function delete the cache.
+#'
+#' @return the previous path
 #' @export
 #'
 #' @examples
@@ -50,7 +53,10 @@ set_api_base_path <- function(path = NULL) {
     rm(list = "api_base_path", envir = .dido_env)
   }
 
+  old_path <- get_api_base_path()
+
   if (!is.null(path)) {
     assign("api_base_path", path, envir = .dido_env)
   }
+  invisible(old_path)
 }
