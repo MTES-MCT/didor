@@ -12,20 +12,15 @@ download_attachment <- function(url, dest = NULL) {
     stop(paste0("dest dir `", dest, "` doesn't exists"), call. = FALSE)
   }
 
-  attachment <- httr::GET(url)
-  if (httr::http_error(attachment)) {
-    error <- extract_http_error(attachment)
-    stop(error, call. = FALSE)
-  }
+  response <- http_get(url)
 
-  content_disposition <- httr::headers(attachment)$`content-disposition`
-  file_name <- strsplit(content_disposition, '"')[[1]][2]
+  file_name <- strsplit(response$headers$`content-disposition`, '"')[[1]][2]
   if (!is.null(dest)) file_name <- paste0(dest, "/", file_name)
 
   tryCatch(
     {
       filehandle <- file(file_name, "wb")
-      writeBin(httr::content(attachment), filehandle)
+      writeBin(response$content, filehandle)
     },
     error = function(e) {
       stop(paste0("Unable to download file: ", e), call. = FALSE)

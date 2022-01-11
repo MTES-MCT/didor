@@ -3,10 +3,10 @@
 #'              Load those data as tibble
 #'
 #'
-#' @param url empty, url or filename. If no argument is passed, the default
-#'        url is used. file must be compatible with the dido api format for
-#'        https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets
-#'        datasets as described on
+#' @param url empty, url or filename. If no argument is passed, the default url
+#'   is used. file must be compatible with the dido api format for
+#'   https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets
+#'    datasets as described on
 #'
 #' @return nothing
 #' @export
@@ -25,8 +25,13 @@
 get_metadata <- function(url = NULL) {
   if (is.null(url)) {
     url <- build_url("/datasets", query = c(page = 1, pageSize = "all"))
+    response <- http_get(url, as = "text")
+    data <- response$content
+  } else {
+    data <- readLines(url)
   }
-  datasets <- jsonlite::fromJSON(url, flatten = TRUE)
+
+  datasets <- jsonlite::fromJSON(data, flatten = TRUE)
 
   dido_ds <- datasets$data %>%
     as_tibble() %>%

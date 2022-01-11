@@ -14,9 +14,12 @@ get_csv <- function(rid,
   )
 
   url <- build_url(path, default_query = default_query, query = query)
-  as_tibble(readr::read_delim(url,
-                              delim = ";",
-                              locale = locale(decimal_mark = "."),
-                              col_types = col_types, na = na
-  ))
+  response <- http_get(url, as = "text")
+  csv <- readr::read_delim(
+    I(response$content),
+    delim = ";",
+    locale = locale(decimal_mark = "."),
+    col_types = col_types, na = na
+  )
+  as_tibble(csv)
 }

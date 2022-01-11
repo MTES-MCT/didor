@@ -1,3 +1,5 @@
+didor_user_agent <- "https://github.com/MTES-MCT/didor"
+
 #' Build url
 #'
 #' build url from all parameters
@@ -36,12 +38,51 @@ magrittr::`%>%`
 
 #' @importFrom httr headers
 #' @importFrom jsonlite parse_json
-extract_http_error <- function(request) {
-  if (grepl("json", httr::headers(request)$`Content-Type`)) {
-    json <- jsonlite::parse_json(request)
-    error <- paste0(json$message, ": ", str_c(json$errors, ", "))
+extract_http_error <- function(resp) {
+  if (grepl("json", httr::headers(resp)$`Content-Type`)) {
+    json <- jsonlite::parse_json(resp)
+    paste0(json$message, ": ", str_c(json$errors, ", "))
   } else {
-    error <- ""
+    NULL
   }
-  error
+}
+
+#' Run HTTP GET request
+#'
+#' @param url the url
+#' @param as text/NULL, return as text or as is
+#'
+#' @return a didor_http_response with two fields:
+#'   * parsed content with the `as` parameter
+#'   * headers
+#' @export
+#'
+#' @examples
+#' http_get(
+#'   "https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/datasets?page=1&pageSize=10",
+#'   as = "text"
+#' )
+#' @keywords internal
+#' @importFrom rlang %||%
+http_get <- function(url, as = NULL) {
+  ua <- httr::user_agent(didor_user_agent)
+  response <- httr::GET(url, ua)
+
+  if (httr::http_error(response)) {
+    message <- c(paste0("Unable to get url ", httr::status_code(response)))
+
+    error <- extract_http_error(response)
+    if (!is.null(error)) message <- c(message, x = error)
+
+    message <- c(message, i = paste0("url: ", response$url))
+    rlang::abort(message = message)
+  }
+  headers <- httr::headers(response) %||% NULL
+  structure(
+    list(
+      content = httr::content(response, as = as),
+      headers = headers
+    ),
+    class = "didor_http_response"
+  )
 }

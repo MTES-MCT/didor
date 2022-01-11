@@ -1,6 +1,6 @@
 test_that("get_csv works", {
   mock <- mockery::mock()
-  mockery::stub(get_csv, "readr::read_delim", mock)
+  mockery::stub(get_csv, "http_get", mock)
 
   result <- get_csv("a")
 
