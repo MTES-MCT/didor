@@ -21,5 +21,5 @@ get_attachments <- function(data, dest = NULL) {
   select(data, url) %>%
     distinct(url) %>%
     pmap(~ download_attachment(..1, dest = dest))
-  invisible(TRUE)
+  invisible(data)
 }

@@ -30,5 +30,5 @@ download_attachment <- function(url, dest = NULL) {
     }
   )
   message(paste0("file downloaded: ", file_name))
-  invisible(TRUE)
+  invisible(url)
 }
