@@ -7,12 +7,17 @@
 set_api_base_path(path = NULL)
 }
 \arguments{
-\item{path}{the path to set or NULL (default value).
-if set to non \code{NULL}, set the path
-if \code{NULL}}
+\item{path}{or NULL the path to set or NULL to use to default path.
+\itemize{
+\item if set to non \code{NULL}, set the value as path
+\item if \code{NULL} set the default path
+\verb{https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1}
+}
+
+@details this function delete the cache.}
 }
 \value{
-nothing
+the previous path
 }
 \description{
 set a new API base path to use

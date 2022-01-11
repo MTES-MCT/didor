@@ -49,14 +49,15 @@ get_api_base_path <- function() {
 #' # to set some new path
 #' set_api_base_path("http://localhost/api/")
 set_api_base_path <- function(path = NULL) {
-  if (is.null(path) && exists("api_base_path", envir = .dido_env)) {
-    rm(list = "api_base_path", envir = .dido_env)
-  }
-
   old_path <- get_api_base_path()
+  clean_dido_env()
 
   if (!is.null(path)) {
     assign("api_base_path", path, envir = .dido_env)
   }
   invisible(old_path)
+}
+
+clean_dido_env <- function() {
+  rm(list = ls(envir = .dido_env), envir = .dido_env)
 }
