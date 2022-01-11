@@ -19,9 +19,6 @@
 #' @import dplyr
 #' @import tibble
 #' @import stringr
-#' @importFrom magrittr %>%
-#' @importFrom purrr map_chr
-#' @importFrom rlang .data
 get_metadata <- function(url = NULL) {
   if (is.null(url)) {
     url <- build_url("/datasets", query = c(page = 1, pageSize = "all"))

@@ -32,12 +32,6 @@ build_url <- function(path, default_query = list(), query = list()) {
   url
 }
 
-#' @importFrom magrittr %>%
-#' @export
-magrittr::`%>%`
-
-#' @importFrom httr headers
-#' @importFrom jsonlite parse_json
 extract_http_error <- function(resp) {
   if (grepl("json", httr::headers(resp)$`Content-Type`)) {
     json <- jsonlite::parse_json(resp)
@@ -63,7 +57,6 @@ extract_http_error <- function(resp) {
 #'   as = "text"
 #' )
 #' @keywords internal
-#' @importFrom rlang %||%
 http_get <- function(url, as = NULL) {
   ua <- httr::user_agent(didor_user_agent)
   response <- httr::GET(url, ua)
@@ -86,3 +79,7 @@ http_get <- function(url, as = NULL) {
     class = "didor_http_response"
   )
 }
+
+#' @export
+magrittr::`%>%`
+

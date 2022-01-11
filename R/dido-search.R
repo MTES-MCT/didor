@@ -9,7 +9,6 @@
 #'
 #' @examples
 #' dido_search(datasets(), "drom")
-#' @importFrom dplyr filter_all any_vars
 dido_search <- function(data, pattern) {
   filter(data, if_any(everything(), ~ grepl(pattern, ., ignore.case = TRUE)))
 }

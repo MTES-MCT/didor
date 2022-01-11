@@ -11,7 +11,6 @@
 #'   dido_search("drom") %>%
 #'   attachments() %>%
 #'   get_attachments(dest = tempdir())
-#' @importFrom purrr pmap
 get_attachments <- function(data, dest = NULL) {
   if (!is.data.frame(data)) {
     stop("data must be a dataframe", call. = FALSE)

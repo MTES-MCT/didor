@@ -7,8 +7,8 @@
 get_metadata(url = NULL)
 }
 \arguments{
-\item{url}{empty, url or filename. If no argument is passed, the default
-url is used. file must be compatible with the dido api format for
+\item{url}{empty, url or filename. If no argument is passed, the default url
+is used. file must be compatible with the dido api format for
 https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html#/datasets/paginate_datasets
 datasets as described on}
 }

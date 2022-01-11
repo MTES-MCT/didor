@@ -45,10 +45,6 @@ millesimes <- function(data) {
 #'
 #' @examples
 #' datafiles() %>% columns()
-#' @importFrom magrittr %>%
-#' @importFrom dplyr select inner_join slice_max
-#' @importFrom tibble as_tibble
-#' @importFrom rlang .data
 columns <- function(data, quiet = FALSE) {
   if (missing(data)) {
     stop("`millesimes()` need an argument")
@@ -102,10 +98,6 @@ columns <- function(data, quiet = FALSE) {
 #'
 #' @examples
 #' datafiles() %>% last_millesime()
-#' @importFrom magrittr %>%
-#' @importFrom dplyr select inner_join slice_max
-#' @importFrom tibble as_tibble
-#' @importFrom rlang .data
 last_millesime <- function(data) {
   if (missing(data)) {
     stop("`last_millesime()` need an argument")

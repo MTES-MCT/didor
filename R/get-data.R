@@ -39,10 +39,6 @@
 #' datafiles() %>%
 #'   dido_search("drom") %>%
 #'   get_data(query = c(DEPARTEMENT_CODE = "eq:971"))
-#' @importFrom magrittr %>%
-#' @importFrom dplyr bind_rows select
-#' @importFrom purrr pmap
-#' @importFrom rlang .data
 get_data <- function(data,
                      query = list(),
                      col_types = cols(.default = "c"),

@@ -1,6 +1,4 @@
 #' @noRd
-#' @importFrom readr read_delim locale cols
-
 get_csv <- function(rid,
                     mil,
                     query = NULL,

@@ -5,7 +5,6 @@
 #' @param dest directory to save it, if `NULL` use current directory
 #'
 #' @noRd
-#' @importFrom httr GET headers content
 #' @keywords internal
 download_attachment <- function(url, dest = NULL) {
   if (!(is.null(dest) || dir.exists(dest))) {

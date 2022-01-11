@@ -19,7 +19,6 @@
 #'   dido_search("6c79805c-def9-4695-9d9f-7d86599c4d8a") %>%
 #'   get_data() %>%
 #'   convert()
-#' @importFrom readr parse_number parse_integer
 convert <- function(data) {
   if (missing(data)) {
     stop("argument data is mandatory.", call. = FALSE)
