@@ -25,7 +25,7 @@ get_metadata <- function(url = NULL) {
     response <- http_get(url, as = "text")
     data <- response$content
   } else {
-    data <- readLines(url)
+    data <- readLines(url, encoding="UTF-8")
   }
 
   datasets <- jsonlite::fromJSON(data, flatten = TRUE)

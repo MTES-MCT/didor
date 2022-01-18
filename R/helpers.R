@@ -73,7 +73,7 @@ http_get <- function(url, as = NULL) {
   headers <- httr::headers(response) %||% NULL
   structure(
     list(
-      content = httr::content(response, as = as),
+      content = httr::content(response, as = as, encoding = "UTF-8"),
       headers = headers
     ),
     class = "didor_http_response"

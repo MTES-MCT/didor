@@ -51,7 +51,7 @@ test_that("columns works", {
 
   result <- tibble(
     name = c("CONSO", "ENERGIE", "PRODUCTEUR"),
-    description = c("consommation", "energie (gaz, électricité)", "producteur"),
+    description = c("consommation", "energie (gaz, \u00e9lectricit\u00e9)", "producteur"),
     type = c("number", "string", "string"),
     format = c("-", "-", "-"),
     unit = c("MW/h", "n/a", "n/a"),
