@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">didor</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2.9000</span>
       </span>
     </div>
 
@@ -78,17 +78,17 @@ or NULL (default)</p></dd>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">datasets</span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 9 × 18</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   id     title    description   topic license frequency created_at last_modified</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-12-17T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-10-18T0…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 61024… Données… <span style="color: #949494;">"</span>Données de … Éner… fr-lo   annual    2021-07-2… 2021-09-23T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   annual    2021-07-2… 2021-09-23T1…</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 61024… Données… <span style="color: #949494;">"</span>Données loc… Éner… fr-lo   unknown   2021-07-2… 2021-07-29T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id          title description topic license frequency created_at last_modified</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 6102486fe4… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 610247f1e4… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 6102491997… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 610244c9e4… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-12-17T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 6102466697… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-12-17T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> 61024489e4… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-10-18T0…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> 610244a997… Donn… <span style="color: #949494;">"</span>Données d… Éner… fr-lo   annual    2021-07-2… 2021-09-23T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> 6102445fe4… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   annual    2021-07-2… 2021-09-23T1…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">9</span> 6102495797… Donn… <span style="color: #949494;">"</span>Données l… Éner… fr-lo   unknown   2021-07-2… 2021-07-29T1…</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 10 more variables: frequency_date &lt;chr&gt;, tags &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   organization_id &lt;chr&gt;, organization_title &lt;chr&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   organization_description &lt;chr&gt;, organization_acronym &lt;chr&gt;,</span></span>
@@ -108,7 +108,7 @@ or NULL (default)</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer></div>
