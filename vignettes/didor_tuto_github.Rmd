@@ -1,0 +1,527 @@
+---
+title: "Tutoriel {didor}"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## DIDO
+
+- Un catalogue à disposition du public, utilisable avec {didor}
+- Un système d'alimentation du catalogue pour les agents qui alimentent régulièrement DIDO
+
+### Catalogue
+
+On trouve ici le catalogue DIDO : <https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=explore&type=dataset&pagination=1&sortField=last_modified&sortOrder=desc>
+
+<details><summary>Catalogue DIDO</summary>
+
+```{r dido, include=TRUE, out.width="100%", echo=FALSE}  
+knitr::include_url("https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=explore&type=dataset&pagination=1&sortField=last_modified&sortOrder=desc")
+```  
+
+
+</details>
+
+### Des jeux de données et des fichiers de données
+
+DIDO propose aujourd'hui (23/02/2023) Une vingtaine de jeux de données (dataset) et environ 120 fichiers de données (datafile).
+
+1 ou plusieurs fichiers de données sont inclus dans un jeu de données.
+Chaque jeu de données contient des fichiers d'annexes.
+
+La logique est donc la suivante : on explore DIDO en commençant par chercher le dataset qui nous intéresse,
+puis on trouve la donnée en explorant les datafiles avec l'aide des annexes.
+Ces annexes commentent et précisent la nature des informations contenues dans les datafiles qui constituent un ensemble logique d'informations : le dataset exploré.
+
+### Que l'on peut aussi explorer directement avec R {didor}
+
+{didor} est un package R <https://github.com/MTES-MCT/didor>    
+qui propose une documentation de prise en main :   
+<https://mtes-mct.github.io/didor/articles/premiers_pas.html>   
+
+
+### Installer {didor}
+
+Assurez-vous de disposer d'un proxy correctement configuré : qui permet de sortir sur Internet
+
+```{r proxy}
+Sys.getenv("http_proxy")
+Sys.getenv("https_proxy")
+
+```
+
+
+Pour le modifier :
+
+```
+Sys.setenv("HTTP_PROXY" = "http://votre_proxy")
+Sys.setenv("HTTPS_PROXY" = "http://votre_proxy_pour_le_https")
+```
+
+Ensuite, vous pouvez installer le package {didor}
+
+```
+install.packages("devtools")
+library(devtools)
+install_github("MTES-MCT/didor")
+library(didor)
+```
+
+## Explorons
+
+Il va nous falloir des fonctions du tidyverse
+
+```{r tidyverse}
+library(tidyverse)
+```
+
+<details><summary>dplyr::filter() ou filter()</summary>
+
+### ah bin tient au passage (hors sujet mais fréquemment ennuyeux)
+
+Lorsqu'on veux utiliser **filter()** du package **{dplyr}** (inclu dans le {tidyverse})
+On est parfois embêté par la fonction **filter()** du package **{stats}**. 
+Qui, en plus en profite pour ne pas faire la même chose. Ca ne servirait à rien sinon !
+
+ça arrive lorsque **stats::filter()**  __cache__ **dplyr::filter()**
+
+Ce comportement est lié à l'ordre dans lequel les packages sont chargés dans l'environnement.
+Si {stats} est chargé après {dplyr} alors stats::filter() masquera dplyr::filter
+et vice et versa dans le cas contraire
+
+Généralement, le package {stats} est chargé avant {dplyr}, mais rien ne le prouve pas !
+Alors on pense que son script va bien s'exécuter comme d'habitude et ça plante...
+donc, désormais, pour ma part je remplace toujours cette fonction par dplyr::filter()
+et comme ça : pas de mauvaise surprise !
+
+exemple : la commande conflicts permet d'identifier les objets qui existent à différents endroits et qui portent le même nom, il en résulte que l'un des 2 (ou plus) est masqué !  
+
+```{r tidyverse_vs_stats_1}
+detach("package:tidyverse")
+detach("package:stats")
+library(tidyverse)  
+library(stats)
+conflicts(, detail=T)
+```
+  
+  
+</details>
+
+### je voudrais la liste des jeux de données proposés
+
+```{r datasets, warning=FALSE}
+tbl_dataset <- didor::datasets()
+```
+
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset}
+knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
+```
+
+</details>
+
+### je voudrais la liste des fichiers de données proposés
+
+Disons que je m'interesse à ce jeu de donnée :   
+Indicateurs territoriaux de développement durable (ITDD)
+
+J'ai envie d'écrire cela :
+
+```{r selection_datafile_1}
+tbl_datafile_itdd <- tbl_dataset %>% didor::datafiles()
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_datafile_2}
+knitr::kable(tbl_datafile_itdd[,c("title","description")] , format="html")
+```
+
+</details>
+
+---
+
+Trop de résultats au milieu de tous les fichiers de données !
+Les infos des fichiers de données ne permettent pas de filtrer sur les jeux de données auxquels ils appartiennent.
+
+Il faut donc d'abord sélectionner le jeu de données qui nous intéresse :
+
+brutalement par exemple :
+
+```{r choisir_le_dataset}
+tbl_dataset <- didor::datasets() %>%
+  dplyr::filter(title %in% c("Indicateurs territoriaux de développement durable (ITDD)"))
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_2}
+knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
+```
+
+</details>
+
+---
+
+ou avec la fonction dido_search :
+
+```{r choisir_le_dataset_3}
+tbl_dataset <- didor::datasets() %>%
+  didor::dido_search("ITDD")
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_3}
+knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
+```
+
+</details>
+
+---
+
+Peu importe le moyen, on peut maintenant chercher les fichiers contenus dans le jeu de données :
+
+```{r selection_datafile_3}
+tbl_datafile_itdd <- didor::datasets() %>%
+  didor::dido_search("ITDD") %>%
+  didor::datafiles()
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_4}
+knitr::kable(tbl_datafile_itdd[,c("title","description")], format="html")
+```
+
+</details>
+
+---
+
+Même ainsi, il y a du choix !
+
+### je voudrais un fichier de données dans un dataframe
+
+Donc on en sélectionne un :
+```{r selection_datafile_4}
+tbl_datafile_itdd <- didor::datasets() %>%
+  didor::dido_search("ITDD") %>%
+  didor::datafiles() %>%
+  didor::dido_search("Bourgogne-Franche-Comté")
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_5}
+knitr::kable(tbl_datafile_itdd[,c("title","description")], format="html")
+```
+
+</details>
+
+---
+
+Et on le récupère : on le met dans un tibble.
+
+C'est quoi un tibble ?  
+<https://tibble.tidyverse.org/>
+
+
+Il est donc chargé en **mémoire** dans R.
+
+```{r selection_datafile_5}
+tbl_datafile_itdd <- didor::datasets() %>%
+  didor::dido_search("ITDD") %>%
+  didor::datafiles() %>%
+  didor::dido_search("Bourgogne-Franche-Comté") %>%
+  didor::get_data(query = c(
+    columns = "CODGEO_CODE,CODGEO_LIBELLE,A2019,A2018,A2017",
+    # NO_INDIC ="eq:i021",
+    VARIABLE = "eq:ESO_PES_NB_TOT_CLAS4",
+    NO_INDIC ="eq:i034b"
+  ))
+
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_6}
+knitr::kable(tbl_datafile_itdd %>% head(30) , format="html")
+```
+
+</details>
+
+---
+
+### Mais qu'est ce que c'est que ces paramètres dans get_data ?
+
+{didor} ne fait rien d'autre que proposer les mêmes outils que ceux dont on dispose dans le catalogue :
+
+* selectionner des colonnes
+* filtrer les lignes selon un critère sur une variable ou plusieurs
+
+#### paramètres
+
+didor::get_data() peut prendre un paramètre query.  
+
+Et ce n'est qu'une requête écrite et passée à l'API.
+
+On trouve donc des informations qui permettent de s'y retrouver dans la documentation de l'API du fichier de données :
+
+<details><summary>résultat</summary>
+
+```{r dido_2, include=TRUE, out.width="100%", echo=FALSE}  
+knitr::include_url("https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=datafile&datafileRid=eb8b9bd5-8e50-4007-a869-948781aadeb3")
+```  
+
+
+</details>
+
+---
+
+#### Les annexes
+
+Dans l'onglets métadonnées du fichier de données.  
+ou  
+Après les fichiers de données, dans le jeu de données.  
+
+On peut les consulter en ligne  
+ou  
+
+On peut directement les récupérer via didor::attachments()
+
+
+
+
+```{r tbl_attachment_6}
+  tbl_attachment <- didor::datasets() %>%
+    didor::dido_search("ITDD") %>%
+    didor::attachments() %>%
+    didor::dido_search("6.01") %>%
+    didor::get_attachments()
+```
+
+#### typage
+
+**Les données sont toutes en chr** : pour les manipuler ce n'est pas forcément pratique.
+C'est néanmoins nécessaire, **pourquoi** ?
+
+Dans un datafile, une variable (colonne) numérique contient une valeur (en général) ...
+Si une valeur est manquante on trouve "n/a" qui correspond au NA bien connu dans R.
+Si une valeur est sous secret statistique, alors on trouve un "s"
+Donc dans DIDO, (numérique) est équivalent à (type numérique de R union "s")
+Bref, en utilisant la fonction convert(), on supprime tout cela et on peut effectuer des opérations mathématiques.
+
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_7}
+str(tbl_datafile_itdd)
+```
+</details>
+
+Il suffit de les convertir avec la fonction convert()
+
+
+```{r selection_datafile_61}
+tbl_datafile_itdd <- didor::datasets() %>%
+  didor::dido_search("ITDD") %>%
+  didor::datafiles() %>%
+  didor::dido_search("Bourgogne-Franche-Comté") %>%
+  didor::get_data(query = c(
+    columns = "CODGEO_CODE,CODGEO_LIBELLE,A2019,A2018,A2017",
+    # NO_INDIC ="eq:i021",
+    VARIABLE = "eq:ESO_PES_NB_TOT_CLAS4",
+    NO_INDIC ="eq:i034b"
+  )) %>%
+  didor::convert()
+
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_81}
+str(tbl_datafile_itdd) 
+```
+
+</details>
+
+#### Cherchons une correlation
+
+Par exemple, entre la participation au présidentielles 2022 et le taux de 20/24 ans sortis non diplomés  
+
+```{r selection_datafile_62}
+result <- didor::datasets() %>%
+  didor::dido_search("ITDD") %>%
+  didor::datafiles() %>%
+  didor::dido_search("Bourgogne-Franche-Comté") %>%
+  didor::get_data(query = c(
+    columns = "VARIABLE,CODGEO_CODE,CODGEO_LIBELLE,A2022,A2019,A2017,A2013,A2012,A2007,A2002",
+    # NO_INDIC ="eq:i021",
+    # VARIABLE = "eq:taux_participation"
+    VARIABLE = "in:part_20_24_sortis_nondip,taux_participation"
+    #NO_INDIC ="eq:i110"
+  )) %>%
+  didor::convert() %>%
+  dplyr::select(CODGEO_CODE,A2022,A2019) %>%
+  group_by(CODGEO_CODE) %>%
+  summarise_at(c("A2022","A2019"),sum,na.rm=T) 
+```
+
+<details><summary>résultat</summary>
+
+```{r selection_dataset_82}
+knitr::kable(result %>% head(30) , format="html")
+```
+
+</details>
+
+En en faisant un nuage de points :
+
+```{r nuage}
+ggplot(result, aes(x=A2022, y=A2019)) + geom_point()
+```
+
+
+#### eco-considérations
+
+Jusqu'à présent, rien n'est écrit sur disque, tout est en mémoire.  
+
+Les données sont récupérées, et transitent donc sur le réseau lorsqu'on fait un get_data()  
+
+Et les paramètres de la 'query' du get_data() filtrent et sélectionnent les données qui sont transférées.  
+
+Le filtrage/sélection s'effectue dans DIDO.  
+
+Si on avait tout récupéré sans filtrer/sélectionner on aurait envoyé environ 20 millions de lignes et un bon paquet de colonnes au travers du réseau.  
+
+ça aurait pris du temps... probablement planté... et consommé plein de ressources inutiles...  
+
+Bref, filtrer/sélectionner au plus près de DIDO, c'est mieux !
+
+#### On peut faire du {shiny} avec {didor}
+
+On peut utiliser {didor} dans une appli {shiny} un exemple avec les données NAMEA d'emission de GES
+
+
+```{r example_namea}
+library(shiny)
+library(didor)
+library(stringr)
+
+code_nace <-   datasets() %>%
+  dido_search('NAMEA') %>%
+  datafiles() %>%
+  get_data(
+    query = c(columns = "CODE_NACE_REV2_ET_MENAGES,LIBELLE_NACE_ET_MENAGES")
+  )
+shinyApp(
+
+# Define UI for application that draws a histogram
+ui <- fillPage(
+  tags$style(HTML('
+    body {
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 7px;
+        line-height: 1.42857143;
+        color: #333;
+        background-color: #fff;
+    }
+    ')),
+    # Application title
+    titlePanel("{didor}+{shiny}"),
+
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+      sidebarPanel(
+        selectInput(
+          inputId = "nace",
+          label = "code nace",
+          choices = unique(code_nace$LIBELLE_NACE_ET_MENAGES)
+        ),
+        width=2
+      ),
+      mainPanel(  
+        tableOutput("table"),
+        width=10
+      )
+    )
+),
+
+# Define server logic required to draw a histogram
+server <- function(input, output) {
+
+  code_nace_select <- reactive({
+    str_c(
+      "in:",
+      as.character(
+        dplyr::filter(
+          unique(
+            code_nace
+          ),
+          LIBELLE_NACE_ET_MENAGES %in% c(input$nace))[1])
+    )
+    
+  })
+  
+  data <- reactive({
+    datasets() %>%
+      dido_search('NAMEA') %>%
+      datafiles() %>%
+      get_data(
+        query = c(SUBSTANCE="in:GES",CODE_NACE_REV2_ET_MENAGES=code_nace_select())
+      )
+  }) 
+  output$table <- renderTable(data())
+},
+
+options = list(width = "100%",height = 500)
+
+)
+# Run the application 
+#shinyApp(ui = ui, server = server)
+```
+
+
+#### Pour aller plus loin : on peut aller chercher des données ailleurs
+
+Le package {didor} ne fait que simplifier la consommation de l'API mise à disposition par DIDO.
+
+Chaque fournisseur de données via API propose son propre système avec ses propres limitations.
+
+Les packages indispensables pour construire une interrogation d'une API sur R sont en général :
+
+- {httr} : pour faire des requetes http
+- {jsonlite} : pour interpréter les données reçues dans le format json
+
+à noter qu'il convient d'être prudent :
+
+- le fournisseur de l'api y a sans doute associé des limitations, pour éviter des sollicitations trop importantes qui casseraient le service fournit
+- il y a parfois des API qui nécessitent une authentification
+- qui limitent le nombre d'interrogation dans un laps de temps donné
+- qui paginent les données retournées
+- ....
+
+
+Il convient alors d'analyser précisément ce qu'il est possible de faire avec chaque API.
+D'une manière générale, interroger une API pour récupérer toutes les données lorsqu'il y en a beaucoup me semble une mauvaise idée, il est probablement plus intéressant de contacter le producteur de la donnée pour analyser la problématique.
+Certaines API permettent de ne récupérer que les données intégrées depuis une date donnée par exemple. Cela peut faire drastiquement diminuer la quantité de ressources nécessaire pour mettre à jour des données dont on disposerait par ailleurs...
+
+
+#### Crédits
+
+Merci à Nicolas Chuche pour la construction de {didor} et,  
+Merci à vous de vos retours sur son utilisation : nous vous invitons à ouvrir des issues dans github afin de nous permettre d'améliorer ce package : 
+<https://github.com/MTES-MCT/didor/issues>
+   
+     
+        
+          
+
+
+
+
