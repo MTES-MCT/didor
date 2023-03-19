@@ -53,8 +53,8 @@ result <- datasets() %>%
 knitr::kable(head(result))
 ```
 
-See the [Tutorial (in
-french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html) and the
-[package homepage](https://mtes-mct.github.io/didor/) for more information and
-examples.
+See [this tutorial](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
+[or this one](https://mtes-mct.github.io/didor/articles/tutoriel_didor.html) and
+the [package homepage](https://mtes-mct.github.io/didor/) for more information
+and examples.
 

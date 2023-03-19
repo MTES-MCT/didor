@@ -11,5 +11,10 @@ Tools to download data from the CGDD/SDES database \url{https://data.statistique
 \author{
 \strong{Maintainer}: Nicolas Chuche \email{nicolas.chuche@developpement-durable.gouv.fr}
 
+Other contributors:
+\itemize{
+  \item Olivier Chantrel \email{olivier.chantrel@developpement-durable.gouv.fr} [contributor]
+}
+
 }
 \keyword{internal}

@@ -1,6 +1,6 @@
 Package: didor
 Title: Tools to Explore and Download CGDD/SDES Opendata
-Version: 0.0.2.9000
+Version: 0.0.3.9000
 Authors@R: c(
     person(given = "Nicolas",
            family = "Chuche",

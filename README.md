@@ -55,7 +55,9 @@ knitr::kable(head(result))
 | 976              | Mayotte             | 06          | Mayotte        | 2021  | 22575      | 133408    | 0        | 11427  | 7061             |
 | 971              | Guadeloupe          | 01          | Guadeloupe     | 2020  | 112378     | 187242    | 273707   | 21455  | 96587            |
 
-See the [Tutorial (in
-french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
-and the [package homepage](https://mtes-mct.github.io/didor/) for more
+See [this
+tutorial](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
+[or this
+one](https://mtes-mct.github.io/didor/articles/tutoriel_didor.html) and
+the [package homepage](https://mtes-mct.github.io/didor/) for more
 information and examples.
