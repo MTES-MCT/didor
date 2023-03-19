@@ -70,7 +70,7 @@ get_data <- function(data,
     stop("argument include more than one millesime per datafile")
   }
 
-  millesime_keys <- select(mill, .data$rid, .data$millesime)
+  millesime_keys <- select(mill, "rid", "millesime")
   list_df <- pmap(millesime_keys, ~ get_csv(..1, ..2, query, col_types))
 
   columns <- millesimes(millesime_keys) %>%

@@ -42,8 +42,8 @@ get_metadata <- function(url = NULL) {
     )
 
   dido_df <- dido_ds %>%
-    select(.data$id, .data$datafiles) %>%
-    unnest(.data$datafiles) %>%
+    select("id", "datafiles") %>%
+    unnest("datafiles") %>%
     as_tibble() %>%
     rename_at(
       vars(contains(".")),
@@ -51,19 +51,19 @@ get_metadata <- function(url = NULL) {
     )
 
   dido_at <- dido_ds %>%
-    select(.data$id, .data$attachments) %>%
-    unnest(.data$attachments) %>%
+    select("id", "attachments") %>%
+    unnest("attachments") %>%
     as_tibble()
 
   dido_ml <- dido_df %>%
-    select(.data$id, .data$rid, .data$millesimes) %>%
-    unnest(.data$millesimes) %>%
+    select("id", "rid", "millesimes") %>%
+    unnest("millesimes") %>%
     mutate(geoFields = map_chr(.data$geoFields, str_c, collapse = ",")) %>%
     mutate(refs = map_chr(.data$refs, str_c, collapse = ",")) %>%
     as_tibble()
 
-  dido_ds <- dido_ds %>% select(-c(.data$datafiles, .data$attachments))
-  dido_df <- dido_df %>% select(-.data$millesimes)
+  dido_ds <- dido_ds %>% select(-c("datafiles", "attachments"))
+  dido_df <- dido_df %>% select(-"millesimes")
 
 
   assign("dido_ml", dido_ml, envir = .dido_env)

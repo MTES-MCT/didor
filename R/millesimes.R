@@ -71,12 +71,12 @@ columns <- function(data, quiet = FALSE) {
   }
 
   columns <- mill %>%
-    select(.data$columns) %>%
-    unnest(.data$columns)
+    select("columns") %>%
+    unnest("columns")
 
   if (!"format" %in% names(columns)) {
     columns <- mutate(columns, format = NA_character_) %>%
-      relocate(format, .after = .data$type)
+      relocate(format, .after = "type")
   }
 
   columns %>%
