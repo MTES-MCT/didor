@@ -55,11 +55,12 @@ get_metadata <- function(url = NULL) {
     unnest("attachments") %>%
     as_tibble()
 
+
   dido_ml <- dido_df %>%
     select("id", "rid", "millesimes") %>%
     unnest("millesimes") %>%
     mutate(geoFields = map_chr(.data$geoFields, str_c, collapse = ",")) %>%
-    mutate(refs = map_chr(.data$refs, str_c, collapse = ",")) %>%
+    mutate(refs = map_chr(.data$refs, concat_dataframe_col, col = "name")) %>%
     as_tibble()
 
   dido_ds <- dido_ds %>% select(-c("datafiles", "attachments"))
@@ -70,4 +71,20 @@ get_metadata <- function(url = NULL) {
   assign("dido_ds", dido_ds, envir = .dido_env)
   assign("dido_df", dido_df, envir = .dido_env)
   assign("dido_at", dido_at, envir = .dido_env)
+}
+
+#' concat_dataframe_col
+#'
+#' concat strings in col `col` of df `x` in one string
+#'
+#' @param data a dataframe
+#' @param col the col name to use
+#'
+#' @return a string
+#'
+#' @keywords internal
+concat_dataframe_col <- function(data, col) {
+  if (is.null(data)) { return("") }
+
+  str_c(unique(data[[col]]), collapse=", ")
 }
