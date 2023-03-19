@@ -27,7 +27,7 @@ the count. It allows you to verify millesimes are coherent"><!-- mathjax --><scr
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -62,40 +62,45 @@ the count. It allows you to verify millesimes are coherent</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">columns</span><span class="op">(</span><span class="va">data</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">columns</span><span class="op">(</span><span class="va">data</span>, quiet <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>a datafiles tibble (as returned by the <code><a href="datafiles.html">datafiles()</a></code> function)</p></dd>
+
+
 <dt>quiet</dt>
 <dd><p>logical; suppress message. Default to FALSE</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a tibble with columns found in input datafiles and occurrence for
+    
+
+<p>a tibble with columns found in input datafiles and occurrence for
 each column</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">columns</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> nb of datafiles: 33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 125 × 6</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    name                        description   type  format unit  `nb of occurre…`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> ADRESSE                     Adresse du p… stri… <span style="color: #BB0000;">NA</span>     n/a                  7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> ANNEE                       Millésime de… year  <span style="color: #BB0000;">NA</span>     n/a                 33</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> CARBUREACTEUR               Ventes de ca… numb… <span style="color: #BB0000;">NA</span>     tonn…                2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> CARBUREACTEUR_M3            Consommation… numb… <span style="color: #BB0000;">NA</span>     m3                   1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> CODE                        Code géograp… stri… <span style="color: #BB0000;">NA</span>     n/a                  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> CODE_CATEGORIE_CONSOMMATION Catégorie de… stri… <span style="color: #BB0000;">NA</span>     n/a                 14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> CODE_EIC                    Code EIC (En… stri… <span style="color: #BB0000;">NA</span>     n/a                  8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> CODE_GRAND_SECTEUR          Code du gran… stri… <span style="color: #BB0000;">NA</span>     n/a                 24</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> CODE_SECTEUR_NAF2           Code NAF à 2… stri… <span style="color: #BB0000;">NA</span>     n/a                 14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> COMMUNE_CODE                Code géograp… stri… <span style="color: #BB0000;">NA</span>     n/a                  3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 115 more rows</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">columns</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> nb of datafiles: 124</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 723 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    name  description type   format unit  `nb of occurrences`</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> A1955 A1955       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> A1960 A1960       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> A1965 A1965       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> A1970 A1970       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> A1975 A1975       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> A1980 A1980       number <span style="color: #BB0000;">NA</span>     n/a                     4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> A1982 A1982       number <span style="color: #BB0000;">NA</span>     n/a                    25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> A1983 A1983       number <span style="color: #BB0000;">NA</span>     n/a                    25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> A1984 A1984       number <span style="color: #BB0000;">NA</span>     n/a                    25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> A1985 A1985       number <span style="color: #BB0000;">NA</span>     n/a                    25</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 713 more rows</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -110,7 +115,7 @@ each column</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

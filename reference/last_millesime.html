@@ -26,7 +26,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -60,36 +60,40 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">last_millesime</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">last_millesime</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>a datafiles tibble (as returned by the <code><a href="datafiles.html">datafiles()</a></code> function)</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a tibble with the last millesimes for all input datafiles</p>
+    
+
+<p>a tibble with the last millesimes for all input datafiles</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">last_millesime</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 33 × 9</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    rid   id    millesime date_diffusion   rows columns extendedFilters geoFields</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 0d1a… 6102… 2021-10   2021-10-17T15… <span style="text-decoration: underline;">119</span>306 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 0ded… 6102… 2021-10   2021-10-17T15… <span style="text-decoration: underline;">240</span>680 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 1296… 6102… 2021-10   2021-10-20T15… <span style="text-decoration: underline;">837</span>201 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 1bc0… 6102… 2020-10   2021-10-19T08…  <span style="text-decoration: underline;">20</span>184 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>EPCI<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 225a… 6102… 2021-10   2021-09-23T12…     48 &lt;df&gt;    <span style="color: #949494;">&lt;list [0]&gt;</span>      <span style="color: #949494;">""</span>       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 27ac… 6102… 2020-10   2021-12-17T08…   <span style="text-decoration: underline;">6</span>507 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 3350… 6102… 2021-12   2021-12-17T09…   <span style="text-decoration: underline;">8</span>278 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 3589… 6102… 2020-10   2021-07-29T06… <span style="text-decoration: underline;">469</span>475 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 3c35… 6102… 2020-10   2021-12-16T11…    802 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>COMMUNE<span style="color: #949494;">"</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 3f09… 6102… 2020-10   2021-10-19T09… <span style="text-decoration: underline;">117</span>961 &lt;df&gt;    <span style="color: #949494;">&lt;df [1 × 3]&gt;</span>    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 23 more rows, and 1 more variable: refs &lt;chr&gt;</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">last_millesime</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 124 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    rid         id    mille…¹ date_…² weburl   rows columns exten…³ geoFi…⁴ refs </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 0018cbe0-c… 63ec… 2023-02 2023-0… https… 3.6 <span style="color: #949494;">e</span>2 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 005fa4ec-7… 631b… 2023-03 2023-0… https… 5.17<span style="color: #949494;">e</span>2 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 0171f12e-a… 6315… 2022-05 2022-0… https… 1.56<span style="color: #949494;">e</span>4 &lt;df&gt;    &lt;df&gt;    <span style="color: #949494;">"</span>DEP<span style="color: #949494;">"</span>   <span style="color: #949494;">"</span>ref…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 039fb42a-e… 63ec… 2023-02 2023-0… https… 6   <span style="color: #949494;">e</span>1 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 04be4886-e… 631b… 2023-03 2023-0… https… 5.3 <span style="color: #949494;">e</span>2 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 0b83eee4-1… 6390… 2022-01 2022-1… https… 5.27<span style="color: #949494;">e</span>6 &lt;df&gt;    &lt;df&gt;    <span style="color: #949494;">"</span>REG,D… <span style="color: #949494;">"</span>c(\…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 0bf930dc-b… 631b… 2023-03 2023-0… https… 5.3 <span style="color: #949494;">e</span>2 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 0d1ac244-0… 6102… 2021-10 2022-0… https… 1.31<span style="color: #949494;">e</span>5 &lt;df&gt;    &lt;df&gt;    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>  <span style="color: #949494;">"</span>ref…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 0dcbc5ca-8… 63ec… 2023-02 2023-0… https… 9.6 <span style="color: #949494;">e</span>1 &lt;df&gt;    &lt;list&gt;  <span style="color: #949494;">""</span>      <span style="color: #949494;">""</span>   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 0ded317c-b… 6102… 2021-10 2022-0… https… 2.48<span style="color: #949494;">e</span>5 &lt;df&gt;    &lt;df&gt;    <span style="color: #949494;">"</span>IRIS<span style="color: #949494;">"</span>  <span style="color: #949494;">"</span>ref…</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 114 more rows, and abbreviated variable names ¹​millesime,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​date_diffusion, ³​extendedFilters, ⁴​geoFields</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -104,7 +108,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

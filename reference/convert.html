@@ -26,7 +26,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -60,17 +60,20 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">convert</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">convert</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>data</dt>
 <dd><p>a dataframe returned by <code><a href="get_data.html">get_data()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a tibble with converted integer and number columns</p>
+    
+
+<p>a tibble with converted integer and number columns</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -82,25 +85,26 @@ replaced by the string "secret") so readr can't determine data type.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"6c79805c-def9-4695-9d9f-7d86599c4d8a"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">convert</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 50 × 10</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    DEPARTEMENT_CODE DEPARTEMENT_LIB… REGION_CODE REGION_LIBELLE ANNEE ESSENCE_M3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 972              Martinique       02          Martinique     2015      <span style="text-decoration: underline;">110</span>986</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 974              La Réunion       04          La Réunion     2019      <span style="text-decoration: underline;">142</span>206</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 976              Mayotte          06          Mayotte        2019       <span style="text-decoration: underline;">20</span>514</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 971              Guadeloupe       01          Guadeloupe     2017      <span style="text-decoration: underline;">121</span>076</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 973              Guyane           03          Guyane         2017       <span style="text-decoration: underline;">34</span>182</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 976              Mayotte          06          Mayotte        2016       <span style="text-decoration: underline;">20</span>025</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 973              Guyane           03          Guyane         2011       <span style="text-decoration: underline;">25</span>111</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 973              Guyane           03          Guyane         2014       <span style="text-decoration: underline;">32</span>161</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 974              La Réunion       04          La Réunion     2014      <span style="text-decoration: underline;">122</span>604</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 976              Mayotte          06          Mayotte        2011       <span style="text-decoration: underline;">16</span>176</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 40 more rows, and 4 more variables: GAZOLE_M3 &lt;dbl&gt;, FIOUL_M3 &lt;dbl&gt;,</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   GPL_M3 &lt;dbl&gt;, CARBUREACTEUR_M3 &lt;dbl&gt;</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"6c79805c-def9-4695-9d9f-7d86599c4d8a"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">convert</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 55 × 10</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    DEPART…¹ DEPAR…² REGIO…³ REGIO…⁴ ANNEE ESSEN…⁵ GAZOL…⁶ FIOUL…⁷ GPL_M3 CARBU…⁸</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 971      Guadel… 01      Guadel… 2021   <span style="text-decoration: underline;">118</span>664  <span style="text-decoration: underline;">190</span>809  <span style="text-decoration: underline;">246</span>583  <span style="text-decoration: underline;">20</span>837  <span style="text-decoration: underline;">107</span>177</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 972      Martin… 02      Martin… 2021   <span style="text-decoration: underline;">125</span>134  <span style="text-decoration: underline;">171</span>964  <span style="text-decoration: underline;">377</span>837  <span style="text-decoration: underline;">17</span>536   <span style="text-decoration: underline;">88</span>983</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 973      Guyane  03      Guyane  2021    <span style="text-decoration: underline;">39</span>528  <span style="text-decoration: underline;">106</span>097   <span style="text-decoration: underline;">78</span>464   <span style="text-decoration: underline;">8</span>826   <span style="text-decoration: underline;">35</span>147</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 974      La Réu… 04      La Réu… 2021   <span style="text-decoration: underline;">151</span>834  <span style="text-decoration: underline;">494</span>126  <span style="text-decoration: underline;">266</span>309  <span style="text-decoration: underline;">38</span>040  <span style="text-decoration: underline;">192</span>811</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 976      Mayotte 06      Mayotte 2021    <span style="text-decoration: underline;">22</span>575  <span style="text-decoration: underline;">133</span>408       0  <span style="text-decoration: underline;">11</span>427    <span style="text-decoration: underline;">7</span>061</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 971      Guadel… 01      Guadel… 2020   <span style="text-decoration: underline;">112</span>378  <span style="text-decoration: underline;">187</span>242  <span style="text-decoration: underline;">273</span>707  <span style="text-decoration: underline;">21</span>455   <span style="text-decoration: underline;">96</span>587</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 972      Martin… 02      Martin… 2020   <span style="text-decoration: underline;">115</span>415  <span style="text-decoration: underline;">167</span>795  <span style="text-decoration: underline;">372</span>927  <span style="text-decoration: underline;">17</span>777   <span style="text-decoration: underline;">77</span>281</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 973      Guyane  03      Guyane  2020    <span style="text-decoration: underline;">26</span>717   <span style="text-decoration: underline;">82</span>004  <span style="text-decoration: underline;">106</span>901   <span style="text-decoration: underline;">9</span>147   <span style="text-decoration: underline;">28</span>781</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 974      La Réu… 04      La Réu… 2020   <span style="text-decoration: underline;">129</span>677  <span style="text-decoration: underline;">445</span>872  <span style="text-decoration: underline;">202</span>724  <span style="text-decoration: underline;">38</span>551  <span style="text-decoration: underline;">168</span>824</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 976      Mayotte 06      Mayotte 2020    <span style="text-decoration: underline;">19</span>592  <span style="text-decoration: underline;">124</span>040       0  <span style="text-decoration: underline;">10</span>852    <span style="text-decoration: underline;">6</span>044</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 45 more rows, and abbreviated variable names ¹​DEPARTEMENT_CODE,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ²​DEPARTEMENT_LIBELLE, ³​REGION_CODE, ⁴​REGION_LIBELLE, ⁵​ESSENCE_M3,</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   ⁶​GAZOLE_M3, ⁷​FIOUL_M3, ⁸​CARBUREACTEUR_M3</span></span>
 </code></pre></div>
     </div>
   </div>
@@ -115,7 +119,7 @@ replaced by the string "secret") so readr can't determine data type.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

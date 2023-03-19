@@ -43,7 +43,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -71,7 +71,7 @@
 
       
 
-      </header><script src="premiers_pas_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Premiers pas</h1>
@@ -85,22 +85,31 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">didor</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">didor</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="utilisation-de-ce-package">utilisation de ce package<a class="anchor" aria-label="anchor" href="#utilisation-de-ce-package"></a>
 </h2>
-<p>Les commandes les plus importantes de ce package sont <code><a href="../reference/datasets.html">datasets()</a></code>, <code><a href="../reference/datafiles.html">datafiles()</a></code>, <code><a href="../reference/dido_search.html">dido_search()</a></code> et <code><a href="../reference/get_data.html">get_data()</a></code>. <code><a href="../reference/dido_search.html">dido_search()</a></code> permet de chercher dans les données qui lui sont passées <code><a href="../reference/get_data.html">get_data()</a></code> permet de télécharcher les données des datafiles passés en arguments.</p>
+<p>Les commandes les plus importantes de ce package sont
+<code><a href="../reference/datasets.html">datasets()</a></code>, <code><a href="../reference/datafiles.html">datafiles()</a></code>,
+<code><a href="../reference/dido_search.html">dido_search()</a></code> et <code><a href="../reference/get_data.html">get_data()</a></code>.
+<code><a href="../reference/dido_search.html">dido_search()</a></code> permet de chercher dans les données qui lui
+sont passées <code><a href="../reference/get_data.html">get_data()</a></code> permet de télécharcher les données
+des datafiles passés en arguments.</p>
 <p>La méthode :</p>
 <ol style="list-style-type: decimal">
 <li>regarder les datasets : <code><a href="../reference/datasets.html">datasets()</a></code>
 </li>
-<li>sélectionner les datasets : <code><a href="../reference/dido_search.html">dido_search()</a></code> et <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>
+<li>sélectionner les datasets : <code><a href="../reference/dido_search.html">dido_search()</a></code> et
+<code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>
 </li>
-<li>récupérer les informations des datafiles associés à ces datasets: `datafiles()</li>
-<li>sélectionner les datafiles intéressants: <code><a href="../reference/dido_search.html">dido_search()</a></code> et <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>
+<li>récupérer les informations des datafiles associés à ces datasets:
+`datafiles()</li>
+<li>sélectionner les datafiles intéressants: <code><a href="../reference/dido_search.html">dido_search()</a></code>
+et <code><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">dplyr::filter()</a></code>
 </li>
-<li>verifier que les datafiles sont compatibles: <code><a href="../reference/columns.html">columns()</a></code>
+<li>verifier que les datafiles sont compatibles:
+<code><a href="../reference/columns.html">columns()</a></code>
 </li>
 <li>télécharger les données: <code><a href="../reference/get_data.html">get_data()</a></code>
 </li>
@@ -115,103 +124,153 @@
 <h3 id="regarder-les-datasets">regarder les datasets<a class="anchor" aria-label="anchor" href="#regarder-les-datasets"></a>
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">result</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">result</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
-<col width="3%">
-<col width="11%">
-<col width="37%">
-<col width="1%">
-<col width="1%">
-<col width="1%">
-<col width="3%">
-<col width="3%">
-<col width="3%">
-<col width="6%">
-<col width="3%">
-<col width="6%">
-<col width="6%">
-<col width="2%">
 <col width="1%">
 <col width="2%">
-<col width="3%">
+<col width="46%">
+<col width="0%">
 <col width="2%">
+<col width="0%">
+<col width="0%">
+<col width="0%">
+<col width="1%">
+<col width="1%">
+<col width="6%">
+<col width="0%">
+<col width="24%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="0%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">id</th>
 <th align="left">title</th>
 <th align="left">description</th>
 <th align="left">topic</th>
+<th align="left">tags</th>
 <th align="left">license</th>
 <th align="left">frequency</th>
+<th align="left">frequency_date</th>
 <th align="left">created_at</th>
 <th align="left">last_modified</th>
-<th align="left">frequency_date</th>
-<th align="left">tags</th>
+<th align="left">weburl</th>
+<th align="right">views</th>
+<th align="left">caution</th>
 <th align="left">organization_id</th>
 <th align="left">organization_title</th>
 <th align="left">organization_description</th>
 <th align="left">organization_acronym</th>
-<th align="left">spatial_zones</th>
-<th align="left">spatial_granularity</th>
 <th align="left">temporal_coverage_start</th>
 <th align="left">temporal_coverage_end</th>
+<th align="left">spatial_zones</th>
+<th align="left">spatial_granularity</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">6102486fe436672220ec5da8</td>
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - EPCI (à partir de 2018)</td>
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - consommations annuelles et points de livraison d’électricité et de gaz naturel, répartis en cinq secteurs (agriculture, industrie, tertiaire, résidentiel et non affecté) ou selon le code NAF à 2 niveaux selon les cas, à la maille EPCI</td>
+<td align="left">631b03afb61e5c6479370169</td>
+<td align="left">Conjoncture mensuelle de l’énergie</td>
+<td align="left">Principales données mensuelles de conjoncture,
+relatives à la production, la consommation, les importations, les
+exportations, ainsi que les prix et la facture des principales formes
+d’énergie qui sont l’électricité, le gaz, les produits pétroliers et le
+bois.</td>
 <td align="left">Énergie</td>
+<td align="left">conjoncture,consommation-d-energie,prix,production-d-energie</td>
 <td align="left">fr-lo</td>
-<td align="left">annual</td>
-<td align="left">2021-07-29T06:19:27.370Z</td>
-<td align="left">2021-12-17T15:59:00.148Z</td>
-<td align="left">2021-10-01T00:00:00.000Z</td>
-<td align="left">consommation-d-energie,electricite,energie,gaz-naturel</td>
-<td align="left">60cf529307db02177dd00720</td>
-<td align="left">Bureau des statistiques de la demande d’énergie</td>
-<td align="left">Bureau des statistiques de la demande d’énergie</td>
-<td align="left">CGDD/SDES/SDSE/BSDE</td>
+<td align="left">monthly</td>
+<td align="left">2023-04-07</td>
+<td align="left">2022-09-09T09:13:19.185Z</td>
+<td align="left">2023-03-10T09:03:06.695Z</td>
+<td align="left"><a href="https://data.statistiques.developpement-durable.gouv.fr:443/dido/beta-f53b3d76fcdd07ed9be7/?page=dataset&amp;datasetId=631b03afb61e5c6479370169" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr:443/dido/beta-f53b3d76fcdd07ed9be7/?page=dataset&amp;datasetId=631b03afb61e5c6479370169</a></td>
+<td align="right">42334</td>
+<td align="left">NA</td>
+<td align="left">60cf529407db02177dd00721</td>
+<td align="left">Bureau des statistiques de l’offre d’énergie</td>
+<td align="left">Bureau des statistiques de l’offre d’énergie</td>
+<td align="left">CGDD/SDES/SDSE/BSOE</td>
+<td align="left">1980-01-01</td>
+<td align="left">2023-01-31</td>
 <td align="left">country:fr</td>
-<td align="left">fr:epci</td>
-<td align="left">2018-01-01</td>
-<td align="left">2020-12-31</td>
+<td align="left">country</td>
 </tr>
 <tr class="even">
-<td align="left">610247f1e43667219cec5da8</td>
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - région (à partir de 2018)</td>
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - consommations annuelles et points de livraison d’électricité et de gaz naturel, répartis en cinq secteurs (agriculture, industrie, tertiaire, résidentiel et non affecté) ou selon le code NAF à 2 niveaux selon les cas, à la maille région</td>
-<td align="left">Énergie</td>
-<td align="left">fr-lo</td>
-<td align="left">annual</td>
-<td align="left">2021-07-29T06:17:21.584Z</td>
-<td align="left">2021-12-17T15:57:48.029Z</td>
-<td align="left">2021-10-01T00:00:00.000Z</td>
-<td align="left">consommation-d-energie,electricite,energie,gaz-naturel</td>
-<td align="left">60cf529307db02177dd00720</td>
-<td align="left">Bureau des statistiques de la demande d’énergie</td>
-<td align="left">Bureau des statistiques de la demande d’énergie</td>
-<td align="left">CGDD/SDES/SDSE/BSDE</td>
-<td align="left">country:fr</td>
-<td align="left">fr:region</td>
-<td align="left">2018-01-01</td>
-<td align="left">2020-12-31</td>
+<td align="left">63ecb0418b083b02288edf23</td>
+<td align="left">Données nationales sur la commercialisation des
+logements neufs</td>
+<td align="left">Les données sont issues de l’enquête sur la
+commercialisation des logements neufs (ECLN) qui interroge chaque
+trimestre les promoteurs immobiliers sur les caractéristiques de leur
+projet et sur le détail des réservations effectuées.</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
+<p>Seuls les programmes immobiliers de cinq logements ou plus sont
+interrogés.</p>
+<p>Les données disponibles au niveau national sont trimestrielles et
+portent sur : - les ventes aux particuliers : mises en vente,
+réservations, annulations des réservations, stock de logements neufs,
+délai d’écoulement des logements, prix de réservation, en distiguant le
+type de projet de construction (nouvelle construction ou construction
+sur existant), le type de logements (individuel ou collectif) et le
+nombre de pièces du logements ; - les ventes aux institutionnels (ventes
+en bloc) : nombre de ventes en bloc et nombre de logements réservés en
+bloc en distinguant le type d’acquéreur.</p>
+<p>Données brutes et données corrigées des variations saisonnières et
+des jours ouvrables (CVS-CJO). |Logement
+|ecln,logement-neuf,prix-des-logements,ventes-de-logement |fr-lo
+|quarterly |2023-05-16 |2023-02-15T10:13:21.413Z
+|2023-03-08T15:51:24.379Z |<a href="https://data.statistiques.developpement-durable.gouv.fr:443/dido/beta-f53b3d76fcdd07ed9be7/?page=dataset&amp;datasetId=63ecb0418b083b02288edf23" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr:443/dido/beta-f53b3d76fcdd07ed9be7/?page=dataset&amp;datasetId=63ecb0418b083b02288edf23</a>
+| 1740|Pour les données sur les ventes aux particuliers : - les données
+détaillées selon le nombre de pièces sont disponibles uniquement à
+partir de 2005 ; - les données corrigées des variations saisonnières et
+des jours ouvrables, les données sur les logements neufs issus de la
+construction sur existant (réhabilitation / rénovation), et les données
+sur les annulations sont disponibles uniquement à partir de l’année
+2017. Pour les données sur les ventes en bloc, elles sont disponibles
+uniquement à partir de l’année 2018. |6273cf16ed00fe6d5495e145 |Bureau
+des statistiques de l’offre du logement et locaux |Bureau des
+statistiques de l’offre du logement et locaux |CGDD/SDES/SDSLC/BSOLL
+|1995-01-01 |2022-12-31 |country-subset:fr:metro |country |</p>
 <p>Utilisez <code><a href="https://tibble.tidyverse.org/reference/view.html" class="external-link">view()</a></code> pour regarder un peu les colonnes.</p>
 </div>
 <div class="section level3">
 <h3 id="sélectionner-les-datasets">sélectionner les datasets<a class="anchor" aria-label="anchor" href="#s%C3%A9lectionner-les-datasets"></a>
 </h3>
-<p>Pour sélectionner les datasets, vous pouvez utiliser les commandes <code>dplyr</code> comme <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> ou la commande <code><a href="../reference/dido_search.html">dido_search()</a></code> qui cherche le motif dans tous les champs <code>chr</code> du dataframe.</p>
+<p>Pour sélectionner les datasets, vous pouvez utiliser les commandes
+<code>dplyr</code> comme <code><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">dplyr::select()</a></code> ou la commande
+<code><a href="../reference/dido_search.html">dido_search()</a></code> qui cherche le motif dans tous les champs
+<code>chr</code> du dataframe.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup><col width="100%"></colgroup>
 <thead><tr class="header">
@@ -219,36 +278,46 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - EPCI (à partir de 2018)</td>
+<td align="left">Conjoncture mensuelle de l’énergie</td>
 </tr>
 <tr class="even">
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - région (à partir de 2018)</td>
+<td align="left">Données locales de consommation d’électricité, de gaz
+naturel et de chaleur et de froid - IRIS (à partir de 2018)</td>
 </tr>
 <tr class="odd">
-<td align="left">Données locales de consommation d’électricité, de gaz naturel et de chaleur et de froid - IRIS (à partir de 2018)</td>
+<td align="left">Données locales de consommation d’électricité et de gaz
+naturel et de chaleur et de froid - adresse (à partir de 2018)</td>
 </tr>
 <tr class="even">
-<td align="left">Données locales de consommation d’électricité et de gaz naturel et de chaleur et de froid - adresse (à partir de 2018)</td>
+<td align="left">Données locales de consommation d’électricité et de gaz
+naturel - EPCI (à partir de 2018)</td>
 </tr>
 <tr class="odd">
-<td align="left">Données locales de consommation d’électricité, de gaz naturel et de chaleur et de froid (période 2008-2017)</td>
+<td align="left">Données locales de consommation d’électricité et de gaz
+naturel - région (à partir de 2018)</td>
+</tr>
+<tr class="even">
+<td align="left">Données locales de consommation d’électricité, de gaz
+naturel et de chaleur et de froid (période 2008-2017)</td>
 </tr>
 </tbody>
 </table>
-<p>5 datasets correspondents à la recherche. Cherchons les datasets contenant ‘epci’ :</p>
+<p>5 datasets correspondents à la recherche. Cherchons les datasets
+contenant ‘epci’ :</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup><col width="100%"></colgroup>
 <thead><tr class="header">
 <th align="left">title</th>
 </tr></thead>
 <tbody><tr class="odd">
-<td align="left">Données locales de consommation d’électricité et de gaz naturel - EPCI (à partir de 2018)</td>
+<td align="left">Données locales de consommation d’électricité et de gaz
+naturel - EPCI (à partir de 2018)</td>
 </tr></tbody>
 </table>
 <p>Nous n’avons plus qu’un seul datasets.</p>
@@ -257,12 +326,12 @@
 <h3 id="étudier-les-datafiles">étudier les datafiles :<a class="anchor" aria-label="anchor" href="#%C3%A9tudier-les-datafiles"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup><col width="100%"></colgroup>
 <thead><tr class="header">
@@ -270,34 +339,48 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - électricité - année 2020</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - électricité - année 2018</td>
 </tr>
 <tr class="even">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2020</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - électricité - année 2019</td>
 </tr>
 <tr class="odd">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2019</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - électricité - année 2020</td>
 </tr>
 <tr class="even">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2018</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - électricité - année 2021</td>
 </tr>
 <tr class="odd">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - électricité - année 2019</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel - année 2021</td>
 </tr>
 <tr class="even">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - électricité - année 2018</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2018</td>
+</tr>
+<tr class="odd">
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2019</td>
+</tr>
+<tr class="even">
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2020</td>
 </tr>
 </tbody>
 </table>
 <p>Nous avons 6 datafiles dont 3 sur le gaz.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">title</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup><col width="100%"></colgroup>
 <thead><tr class="header">
@@ -305,29 +388,37 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2020</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel - année 2021</td>
 </tr>
 <tr class="even">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2019</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2018</td>
 </tr>
 <tr class="odd">
-<td align="left">Données de consommation et de points de livraison d’énergie à la maille EPCI - gaz naturel- année 2018</td>
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2019</td>
+</tr>
+<tr class="even">
+<td align="left">Données de consommation et de points de livraison
+d’énergie à la maille EPCI - gaz naturel- année 2020</td>
 </tr>
 </tbody>
 </table>
-<p>Nous avons réussi à filter 3 datafiles avec des données gaz à la maille EPCI, chacun traite d’une année de 2018 à 2020.</p>
+<p>Nous avons réussi à filter 3 datafiles avec des données gaz à la
+maille EPCI, chacun traite d’une année de 2018 à 2020.</p>
 </div>
 <div class="section level3">
 <h3 id="vérifier-que-les-données-de-ces-3-datafiles-sont-homogènes-">vérifier que les données de ces 3 datafiles sont homogènes.<a class="anchor" aria-label="anchor" href="#v%C3%A9rifier-que-les-donn%C3%A9es-de-ces-3-datafiles-sont-homog%C3%A8nes-"></a>
 </h3>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/columns.html">columns</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/columns.html">columns</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="18%">
@@ -352,7 +443,7 @@
 <td align="left">year</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="left">CODE_CATEGORIE_CONSOMMATION</td>
@@ -360,15 +451,16 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">CODE_EIC</td>
-<td align="left">Code EIC (Energy Identification Code) de l’opérateur</td>
+<td align="left">Code EIC (Energy Identification Code) de
+l’opérateur</td>
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">1</td>
+<td align="right">2</td>
 </tr>
 <tr class="even">
 <td align="left">CODE_GRAND_SECTEUR</td>
@@ -376,7 +468,7 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">CODE_SECTEUR_NAF2</td>
@@ -387,12 +479,30 @@
 <td align="right">3</td>
 </tr>
 <tr class="even">
+<td align="left">CODE_SECTEUR_NAF2_CODE</td>
+<td align="left">Code NAF à 2 positions du secteur (NAF rev2 2008) -
+Code NAF</td>
+<td align="left">string</td>
+<td align="left">NA</td>
+<td align="left">n/a</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">CODE_SECTEUR_NAF2_LIBELLE</td>
+<td align="left">Code NAF à 2 positions du secteur (NAF rev2 2008) -
+Libellé NAF</td>
+<td align="left">string</td>
+<td align="left">NA</td>
+<td align="left">n/a</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
 <td align="left">CONSO</td>
 <td align="left">Consommation (en MWh)</td>
 <td align="left">number</td>
 <td align="left">NA</td>
 <td align="left">MWh</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">EPCI_CODE</td>
@@ -400,7 +510,7 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="left">EPCI_LIBELLE</td>
@@ -408,7 +518,7 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">FILIERE</td>
@@ -416,7 +526,7 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="left">INDQUAL</td>
@@ -424,7 +534,7 @@
 <td align="left">number</td>
 <td align="left">NA</td>
 <td align="left">pourcent</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">NB_IRIS_MASQUES</td>
@@ -432,7 +542,7 @@
 <td align="left">integer</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="left">OPERATEUR</td>
@@ -440,15 +550,16 @@
 <td align="left">string</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">PART</td>
-<td align="left">Part de la consommation thermosensible dans le résidentiel (en pourcent)</td>
+<td align="left">Part de la consommation thermosensible dans le
+résidentiel (en pourcent)</td>
 <td align="left">number</td>
 <td align="left">NA</td>
 <td align="left">pourcent</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="even">
 <td align="left">PDL</td>
@@ -456,110 +567,120 @@
 <td align="left">integer</td>
 <td align="left">NA</td>
 <td align="left">n/a</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 <tr class="odd">
 <td align="left">THERMOR</td>
-<td align="left">Thermosensibilité dans le résidentiel (en kWh/degré-jour)</td>
+<td align="left">Thermosensibilité dans le résidentiel (en
+kWh/degré-jour)</td>
 <td align="left">number</td>
 <td align="left">NA</td>
 <td align="left">kWh/degré-jour</td>
-<td align="right">3</td>
+<td align="right">4</td>
 </tr>
 </tbody>
 </table>
-<p><code><a href="../reference/columns.html">columns()</a></code> nous indique que nous avons bien 3 datafiles et que les colonnes sont toutes communes au 3 datafiles sauf 1. Sans doute un ajout de colonne.</p>
+<p><code><a href="../reference/columns.html">columns()</a></code> nous indique que nous avons bien 3 datafiles
+et que les colonnes sont toutes communes au 3 datafiles sauf 1. Sans
+doute un ajout de colonne.</p>
 <p>Vous pouvez regarder les fichiers annexes :</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">attachments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/attachments.html">attachments</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">attachments</span>, n<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">attachments</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/attachments.html">attachments</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">attachments</span>, n<span class="op">=</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table style="width:100%;" class="table">
 <colgroup>
-<col width="6%">
-<col width="8%">
-<col width="12%">
-<col width="28%">
-<col width="6%">
-<col width="6%">
-<col width="6%">
-<col width="26%">
+<col width="7%">
+<col width="11%">
+<col width="10%">
+<col width="13%">
+<col width="7%">
+<col width="32%">
+<col width="7%">
+<col width="7%">
+<col width="3%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">id</th>
 <th align="left">rid</th>
 <th align="left">title</th>
 <th align="left">description</th>
-<th align="left">created_at</th>
-<th align="left">last_modified</th>
 <th align="left">published</th>
 <th align="left">url</th>
+<th align="left">created_at</th>
+<th align="left">last_modified</th>
+<th align="right">downloads</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">6102486fe436672220ec5da8</td>
-<td align="left">635b50ca-7217-4bd9-87bb-35299252c392</td>
-<td align="left">Non répondants - collecte électricité 2018 à 2020</td>
-<td align="left">Liste des gestionnaires de réseau n’ayant pas transmis les données locales de l’énergie “électricité” de 2018 à 2020</td>
-<td align="left">2021-10-17T17:26:15.701Z</td>
-<td align="left">2021-10-17T17:26:16.583Z</td>
-<td align="left">2021-10-19T22:00:00.000Z</td>
-<td align="left"><a href="https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/635b50ca-7217-4bd9-87bb-35299252c392" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/635b50ca-7217-4bd9-87bb-35299252c392</a></td>
+<td align="left">f04ed396-893a-46fb-92d5-431cfd890e7d</td>
+<td align="left">Liste des variables - électricité</td>
+<td align="left">Détail des variables - fichiers électricité</td>
+<td align="left">2020-10-01T00:00:00.000Z</td>
+<td align="left"><a href="https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/f04ed396-893a-46fb-92d5-431cfd890e7d" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/f04ed396-893a-46fb-92d5-431cfd890e7d</a></td>
+<td align="left">2021-07-29T06:22:06.191Z</td>
+<td align="left">2022-09-27T07:35:50.383Z</td>
+<td align="right">320</td>
 </tr>
 <tr class="even">
 <td align="left">6102486fe436672220ec5da8</td>
-<td align="left">95c5114c-2798-44ee-92ad-6ff35dc6204d</td>
-<td align="left">Non répondants - collecte gaz 2018 à 2020</td>
-<td align="left">Liste des gestionnaires de réseau n’ayant pas transmis les données locales de l’énergie “gaz” de 2018 à 2020</td>
-<td align="left">2021-10-17T17:15:22.186Z</td>
-<td align="left">2021-10-17T17:26:35.406Z</td>
-<td align="left">2021-10-19T22:00:00.000Z</td>
-<td align="left"><a href="https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/95c5114c-2798-44ee-92ad-6ff35dc6204d" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/95c5114c-2798-44ee-92ad-6ff35dc6204d</a></td>
+<td align="left">18aa94bb-d724-4672-9045-e1558b557734</td>
+<td align="left">Liste des variables - gaz</td>
+<td align="left">Détail des variables - fichiers gaz</td>
+<td align="left">2020-10-01T00:00:00.000Z</td>
+<td align="left"><a href="https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/18aa94bb-d724-4672-9045-e1558b557734" class="external-link uri">https://data.statistiques.developpement-durable.gouv.fr/dido/api/files/18aa94bb-d724-4672-9045-e1558b557734</a></td>
+<td align="left">2021-07-29T06:22:07.878Z</td>
+<td align="left">2022-09-27T07:36:13.515Z</td>
+<td align="right">225</td>
 </tr>
 </tbody>
 </table>
 <p>Et les télécharger :</p>
-<pre><code><span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/attachments.html">attachments</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/get_attachments.html">get_attachments</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre>
+<pre><code><span><span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/attachments.html">attachments</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/get_attachments.html">get_attachments</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="télécharger-les-données">télécharger les données<a class="anchor" aria-label="anchor" href="#t%C3%A9l%C3%A9charger-les-donn%C3%A9es"></a>
 </h3>
-<p>La commande <code><a href="../reference/get_data.html">get_data()</a></code> s’occupe de télécharger les différents datafiles et les concatène.</p>
+<p>La commande <code><a href="../reference/get_data.html">get_data()</a></code> s’occupe de télécharger les
+différents datafiles et les concatène.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table style="width:100%;" class="table">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'epci'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">'gaz'</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<table class="table">
 <colgroup>
-<col width="5%">
+<col width="4%">
+<col width="2%">
 <col width="3%">
 <col width="4%">
-<col width="5%">
-<col width="14%">
-<col width="14%">
+<col width="15%">
+<col width="11%">
+<col width="7%">
+<col width="7%">
+<col width="4%">
+<col width="1%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="6%">
+<col width="3%">
 <col width="9%">
 <col width="10%">
-<col width="5%">
-<col width="2%">
-<col width="4%">
-<col width="4%">
-<col width="2%">
-<col width="8%">
-<col width="4%">
 </colgroup>
 <thead><tr class="header">
 <th align="left">OPERATEUR</th>
@@ -577,95 +698,112 @@
 <th align="left">PART</th>
 <th align="left">NB_IRIS_MASQUES</th>
 <th align="left">CODE_EIC</th>
+<th align="left">CODE_SECTEUR_NAF2_CODE</th>
+<th align="left">CODE_SECTEUR_NAF2_LIBELLE</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td align="left">GRDF</td>
 <td align="left">2019</td>
 <td align="left">G</td>
-<td align="left">249100546</td>
-<td align="left">CC du Val d’Essonne (CCVE)</td>
+<td align="left">248400160</td>
+<td align="left">CC Aygues-Ouvèze en Provence (CCAOP)</td>
 <td align="left">ENT</td>
-<td align="left">45</td>
+<td align="left">85</td>
 <td align="left">T</td>
-<td align="left">69.88821</td>
+<td align="left">541.77855</td>
 <td align="left">1</td>
-<td align="left">NA</td>
+<td align="left">0</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">0</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 <td align="left">NA</td>
 </tr>
 <tr class="even">
 <td align="left">GRDF</td>
 <td align="left">2019</td>
 <td align="left">G</td>
-<td align="left">249100157</td>
-<td align="left">CC des Deux Vallées</td>
+<td align="left">248400160</td>
+<td align="left">CC Aygues-Ouvèze en Provence (CCAOP)</td>
 <td align="left">ENT</td>
-<td align="left">81</td>
+<td align="left">87</td>
 <td align="left">T</td>
-<td align="left">1583.07802</td>
+<td align="left">329.58031</td>
 <td align="left">1</td>
-<td align="left">NA</td>
+<td align="left">0</td>
 <td align="left">NA</td>
 <td align="left">NA</td>
 <td align="left">0</td>
 <td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
 </tr>
 </tbody>
 </table>
-<p><code>data</code> contient maintenant les données des 3 datafiles sur le gaz à la maille EPCI</p>
+<p><code>data</code> contient maintenant les données des 3 datafiles sur
+le gaz à la maille EPCI</p>
 </div>
 <div class="section level3">
 <h3 id="convertir-les-données-numériques">convertir les données numériques<a class="anchor" aria-label="anchor" href="#convertir-les-donn%C3%A9es-num%C3%A9riques"></a>
 </h3>
-<p>Les données peuvent contenir des valeurs secrétisées se présentant sous la forme de la chaine <code>secret</code>, R ne peut donc pas deviner correctement le type des colonnes.</p>
-<p>La commande <code><a href="../reference/convert.html">convert()</a></code> utilise les métadonnées de l’API pour réaliser la conversion, les données secrétisées sont retournées en <code>NA</code></p>
-<p>Testons cette conversion sur les ventes mensuelles de produits pétroliers depuis 2017 :</p>
+<p>Les données peuvent contenir des valeurs secrétisées se présentant
+sous la forme de la chaine <code>secret</code>, R ne peut donc pas
+deviner correctement le type des colonnes.</p>
+<p>La commande <code><a href="../reference/convert.html">convert()</a></code> utilise les métadonnées de l’API
+pour réaliser la conversion, les données secrétisées sont retournées en
+<code>NA</code></p>
+<p>Testons cette conversion sur les ventes mensuelles de produits
+pétroliers depuis 2017 :</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="op">(</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-   <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"Données mensuelles.*pétroliers"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">temporal_coverage_start</span> <span class="op">&gt;=</span> <span class="st">"2017-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-   <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-   <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"gazole routier"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
-   <span class="fu"><a href="../reference/get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 48 × 13</span></span>
-<span class="co">#&gt;    ANNEE MOIS    SUPER_SANS_PLOMB SUPER_SANS_PLOMB_95 SUPER_SANS_PLOMB_95_E10</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2017  2017-09 683669           251555              263472                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2019  2019-04 700012.8         204816.8            322078                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2018  2018-07 752877           245769              319237                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2019  2019-06 737732.5         205310.2            346159.9               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2020  2020-11 463357.6         97793.2             241261                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2020  2020-06 667434.4         164916.5            317289.1               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2020  2020-10 693710.8         164078.5            349939.7               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2020  2020-02 627130.4         153864.9            316099.4               </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2018  2018-08 751765           247727              317988                 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2017  2017-08 716664           260623              276731                 </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 38 more rows, and 8 more variables: SUPER_SANS_PLOMB_98 &lt;chr&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   SUPER_ETH_E85 &lt;chr&gt;, GAZOLE &lt;chr&gt;, FOD &lt;chr&gt;, FOL &lt;chr&gt;, GNR &lt;chr&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   GPL &lt;chr&gt;, CARBUREACTEUR &lt;chr&gt;</span></span></code></pre></div>
-<p>Les variables sont toutes de type <code>chr</code>. Pour convertir ces données :</p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"Données mensuelles.*pétroliers"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">temporal_coverage_start</span> <span class="op">&gt;=</span> <span class="st">"2017-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"gazole routier"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>   <span class="fu"><a href="../reference/get_data.html">get_data</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 60 × 13</span></span></span>
+<span><span class="co">#&gt;    ANNEE MOIS   SUPER…¹ SUPER…² SUPER…³ SUPER…⁴ SUPER…⁵ GAZOLE FOD   FOL   GNR  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2017  2017-… 583671  206971  237447  131460  7792    27974… 5819… 35547 3604…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2018  2018-… 652732  221168  268552  153328  9684    27271… 3269… 23721 3728…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2017  2017-… 516331  197700  204431  108507  5692    26361… 9608… 32258 2218…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2018  2018-… 529209  181969  224800  114433  8007    25417… 7825… 25939 2366…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2019  2019-… 735285… 197209… 355882… 155889  26304.… 28709… 4489… 19465 4136…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2020  2020-… 437680… 112376… 198083… 111390… 15830.2 17418… 6086… 10724 4209…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2020  2020-… 667434… 164916… 317289… 160323… 24905.2 24859… 2822… 12596 3829…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2021  2021-… 798671… 182105… 397610… 195139… 23816.… 27468… 1933… 12317 4063…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2017  2017-… 683669  251555  263472  160747  7895    29908… 6362… 28895 4246…</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2017  2017-… 608773  216741  241231  142651  8150    28331… 4384… 37586 4281…</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 50 more rows, 2 more variables: GPL &lt;chr&gt;, CARBUREACTEUR &lt;chr&gt;, and</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   abbreviated variable names ¹​SUPER_SANS_PLOMB, ²​SUPER_SANS_PLOMB_95,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ³​SUPER_SANS_PLOMB_95_E10, ⁴​SUPER_SANS_PLOMB_98, ⁵​SUPER_ETH_E85</span></span></span></code></pre></div>
+<p>Les variables sont toutes de type <code>chr</code>. Pour convertir
+ces données :</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/convert.html">convert</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 48 × 13</span></span>
-<span class="co">#&gt;    ANNEE MOIS    SUPER_SANS_PLOMB SUPER_SANS_PLOMB_95 SUPER_SANS_PLOMB_95_E10</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>                   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2017  2017-09          <span style="text-decoration: underline;">683</span>669              <span style="text-decoration: underline;">251</span>555                  <span style="text-decoration: underline;">263</span>472 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2019  2019-04          <span style="text-decoration: underline;">700</span>013.             <span style="text-decoration: underline;">204</span>817.                 <span style="text-decoration: underline;">322</span>078 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2018  2018-07          <span style="text-decoration: underline;">752</span>877              <span style="text-decoration: underline;">245</span>769                  <span style="text-decoration: underline;">319</span>237 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2019  2019-06          <span style="text-decoration: underline;">737</span>732.             <span style="text-decoration: underline;">205</span>310.                 <span style="text-decoration: underline;">346</span>160.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2020  2020-11          <span style="text-decoration: underline;">463</span>358.              <span style="text-decoration: underline;">97</span>793.                 <span style="text-decoration: underline;">241</span>261 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2020  2020-06          <span style="text-decoration: underline;">667</span>434.             <span style="text-decoration: underline;">164</span>916.                 <span style="text-decoration: underline;">317</span>289.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2020  2020-10          <span style="text-decoration: underline;">693</span>711.             <span style="text-decoration: underline;">164</span>078.                 <span style="text-decoration: underline;">349</span>940.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2020  2020-02          <span style="text-decoration: underline;">627</span>130.             <span style="text-decoration: underline;">153</span>865.                 <span style="text-decoration: underline;">316</span>099.</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2018  2018-08          <span style="text-decoration: underline;">751</span>765              <span style="text-decoration: underline;">247</span>727                  <span style="text-decoration: underline;">317</span>988 </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2017  2017-08          <span style="text-decoration: underline;">716</span>664              <span style="text-decoration: underline;">260</span>623                  <span style="text-decoration: underline;">276</span>731 </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 38 more rows, and 8 more variables: SUPER_SANS_PLOMB_98 &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   SUPER_ETH_E85 &lt;dbl&gt;, GAZOLE &lt;dbl&gt;, FOD &lt;dbl&gt;, FOL &lt;dbl&gt;, GNR &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   GPL &lt;dbl&gt;, CARBUREACTEUR &lt;dbl&gt;</span></span></code></pre></div>
-<p><strong>Attention</strong>, la conversion s’appuie sur l’usage des attributs qui sont perdues à la première manipulation des tibbles/dataframes. <code><a href="../reference/convert.html">convert()</a></code> doit être fait immédiatement après <code><a href="../reference/get_data.html">get_data()</a></code></p>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/convert.html">convert</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 60 × 13</span></span></span>
+<span><span class="co">#&gt;    ANNEE MOIS    SUPER_SAN…¹ SUPER…² SUPER…³ SUPER…⁴ SUPER…⁵ GAZOLE    FOD   FOL</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 2017  2017-11     <span style="text-decoration: underline;">583</span>671  <span style="text-decoration: underline;">206</span>971  <span style="text-decoration: underline;">237</span>447  <span style="text-decoration: underline;">131</span>460    <span style="text-decoration: underline;">7</span>792  2.80<span style="color: #949494;">e</span>6 5.82<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">35</span>547</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 2018  2018-04     <span style="text-decoration: underline;">652</span>732  <span style="text-decoration: underline;">221</span>168  <span style="text-decoration: underline;">268</span>552  <span style="text-decoration: underline;">153</span>328    <span style="text-decoration: underline;">9</span>684  2.73<span style="color: #949494;">e</span>6 3.27<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">23</span>721</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 2017  2017-01     <span style="text-decoration: underline;">516</span>331  <span style="text-decoration: underline;">197</span>700  <span style="text-decoration: underline;">204</span>431  <span style="text-decoration: underline;">108</span>507    <span style="text-decoration: underline;">5</span>692  2.64<span style="color: #949494;">e</span>6 9.61<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">32</span>258</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 2018  2018-02     <span style="text-decoration: underline;">529</span>209  <span style="text-decoration: underline;">181</span>969  <span style="text-decoration: underline;">224</span>800  <span style="text-decoration: underline;">114</span>433    <span style="text-decoration: underline;">8</span>007  2.54<span style="color: #949494;">e</span>6 7.83<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">25</span>939</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 2019  2019-10     <span style="text-decoration: underline;">735</span>286. <span style="text-decoration: underline;">197</span>210. <span style="text-decoration: underline;">355</span>883. <span style="text-decoration: underline;">155</span>889   <span style="text-decoration: underline;">26</span>304. 2.87<span style="color: #949494;">e</span>6 4.49<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">19</span>465</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 2020  2020-05     <span style="text-decoration: underline;">437</span>681. <span style="text-decoration: underline;">112</span>377. <span style="text-decoration: underline;">198</span>083. <span style="text-decoration: underline;">111</span>390.  <span style="text-decoration: underline;">15</span>830. 1.74<span style="color: #949494;">e</span>6 6.09<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">10</span>724</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 2020  2020-06     <span style="text-decoration: underline;">667</span>434. <span style="text-decoration: underline;">164</span>916. <span style="text-decoration: underline;">317</span>289. <span style="text-decoration: underline;">160</span>324.  <span style="text-decoration: underline;">24</span>905. 2.49<span style="color: #949494;">e</span>6 2.82<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">12</span>596</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 2021  2021-06     <span style="text-decoration: underline;">798</span>671. <span style="text-decoration: underline;">182</span>106. <span style="text-decoration: underline;">397</span>610. <span style="text-decoration: underline;">195</span>139.  <span style="text-decoration: underline;">23</span>816. 2.75<span style="color: #949494;">e</span>6 1.93<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">12</span>317</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 2017  2017-09     <span style="text-decoration: underline;">683</span>669  <span style="text-decoration: underline;">251</span>555  <span style="text-decoration: underline;">263</span>472  <span style="text-decoration: underline;">160</span>747    <span style="text-decoration: underline;">7</span>895  2.99<span style="color: #949494;">e</span>6 6.36<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">28</span>895</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 2017  2017-10     <span style="text-decoration: underline;">608</span>773  <span style="text-decoration: underline;">216</span>741  <span style="text-decoration: underline;">241</span>231  <span style="text-decoration: underline;">142</span>651    <span style="text-decoration: underline;">8</span>150  2.83<span style="color: #949494;">e</span>6 4.38<span style="color: #949494;">e</span>5 <span style="text-decoration: underline;">37</span>586</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 50 more rows, 3 more variables: GNR &lt;dbl&gt;, GPL &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   CARBUREACTEUR &lt;dbl&gt;, and abbreviated variable names ¹​SUPER_SANS_PLOMB,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ²​SUPER_SANS_PLOMB_95, ³​SUPER_SANS_PLOMB_95_E10, ⁴​SUPER_SANS_PLOMB_98,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁵​SUPER_ETH_E85</span></span></span></code></pre></div>
+<p><strong>Attention</strong>, la conversion s’appuie sur l’usage des
+attributs qui sont perdues à la première manipulation des
+tibbles/dataframes. <code><a href="../reference/convert.html">convert()</a></code> doit être fait immédiatement
+après <code><a href="../reference/get_data.html">get_data()</a></code></p>
 </div>
 </div>
   </div>
@@ -687,7 +825,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
