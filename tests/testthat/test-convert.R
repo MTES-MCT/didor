@@ -3,7 +3,8 @@ columns <- tribble(
   "ANNEE", "annee", "year", NA,
   "NUMBER", "number", "number", NA,
   "INTEGER", "integer", "integer", NA
-)
+) %>% mutate(format = as.character(format))
+
 attributes <- build_attributes(columns)
 
 test_that("convert works", {

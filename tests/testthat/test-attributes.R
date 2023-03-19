@@ -7,7 +7,8 @@ test_that("set_attributes works", {
     ~name, ~description, ~type, ~format, ~unit,
     "ANNEE", "année", "year", NA, "n/a",
     "NAME", "name", "string", NA, "n/a"
-  )
+  ) %>% mutate(format = as.character(format))
+
   metadata <- build_attributes(columns)
 
   a <- set_attributes(data, metadata)
