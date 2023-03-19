@@ -25,6 +25,6 @@ datasets <- function(data = NULL) {
   }
 
   select(data, "id") %>%
-    inner_join(dido_ds, by = c("id")) %>%
+    inner_join(dido_ds, by = c("id"), multiple = "all") %>%
     distinct()
 }

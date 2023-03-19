@@ -27,7 +27,7 @@ millesimes <- function(data) {
   }
 
   select(data, unlist(join_by)) %>%
-    inner_join(dido_ml, by = join_by) %>%
+    inner_join(dido_ml, by = join_by, multiple = "all") %>%
     distinct()
 }
 

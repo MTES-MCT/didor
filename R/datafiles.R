@@ -24,5 +24,5 @@ datafiles <- function(data = NULL) {
   }
 
   select(data, id) %>%
-    inner_join(dido_df, by = c("id"))
+    inner_join(dido_df, by = c("id"), multiple = "all")
 }

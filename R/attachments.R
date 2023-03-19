@@ -25,5 +25,5 @@ attachments <- function(data = NULL) {
   }
 
   select(data, id) %>%
-    inner_join(dido_at, by = c("id"))
+    inner_join(dido_at, by = c("id"), multiple = "all")
 }
