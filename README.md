@@ -7,8 +7,10 @@ DiDo R package
 
 <!-- badges: start -->
 
-[<img src="https://www.repostatus.org/badges/latest/wip.svg" target="_blank" alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." />](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/MTES-MCT/didor/workflows/R-CMD-check/badge.svg)](https://github.com/MTES-MCT/didor/actions)
+[<img src="https://www.repostatus.org/badges/latest/wip.svg"
+target="_blank"
+alt="Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public." />](https://www.repostatus.org/#wip)
+[![R-CMD-check](https://github.com/MTES-MCT/didor/workflows/R-CMD-check/badge.svg)](https://github.com/MTES-MCT/didor/actions/workflows/check-release.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/nbc/didor/branch/main/graph/badge.svg)](https://codecov.io/gh/nbc/didor?branch=main)
 <!-- badges: end -->
@@ -44,16 +46,16 @@ result <- datasets() %>%
 knitr::kable(head(result))
 ```
 
-| DEPARTEMENT\_CODE | DEPARTEMENT\_LIBELLE | REGION\_CODE | REGION\_LIBELLE | ANNEE | ESSENCE\_M3 | GAZOLE\_M3 | FIOUL\_M3 | GPL\_M3 | CARBUREACTEUR\_M3 |
-|:------------------|:---------------------|:-------------|:----------------|:------|:------------|:-----------|:----------|:--------|:------------------|
-| 971               | Guadeloupe           | 01           | Guadeloupe      | 2020  | 112378      | 187242     | 273707    | 21455   | 96587             |
-| 972               | Martinique           | 02           | Martinique      | 2020  | 115415      | 167795     | 372927    | 17777   | 77281             |
-| 973               | Guyane               | 03           | Guyane          | 2020  | 34904       | 103757     | 118452    | 8882    | 28400             |
-| 974               | La Réunion           | 04           | La Réunion      | 2020  | 129677      | 445872     | 202724    | 38551   | 168824            |
-| 976               | Mayotte              | 06           | Mayotte         | 2020  | 19592       | 124040     | NA        | 10852   | 6044              |
-| 971               | Guadeloupe           | 01           | Guadeloupe      | 2019  | 128464      | 217934     | 233765    | 21539   | 160846            |
+| DEPARTEMENT_CODE | DEPARTEMENT_LIBELLE | REGION_CODE | REGION_LIBELLE | ANNEE | ESSENCE_M3 | GAZOLE_M3 | FIOUL_M3 | GPL_M3 | CARBUREACTEUR_M3 |
+|:-----------------|:--------------------|:------------|:---------------|:------|:-----------|:----------|:---------|:-------|:-----------------|
+| 971              | Guadeloupe          | 01          | Guadeloupe     | 2021  | 118664     | 190809    | 246583   | 20837  | 107177           |
+| 972              | Martinique          | 02          | Martinique     | 2021  | 125134     | 171964    | 377837   | 17536  | 88983            |
+| 973              | Guyane              | 03          | Guyane         | 2021  | 39528      | 106097    | 78464    | 8826   | 35147            |
+| 974              | La Réunion          | 04          | La Réunion     | 2021  | 151834     | 494126    | 266309   | 38040  | 192811           |
+| 976              | Mayotte             | 06          | Mayotte        | 2021  | 22575      | 133408    | 0        | 11427  | 7061             |
+| 971              | Guadeloupe          | 01          | Guadeloupe     | 2020  | 112378     | 187242    | 273707   | 21455  | 96587            |
 
 See the [Tutorial (in
 french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html)
-and the [package homepage](https://mtes-mct.github.io/didor/)for more
+and the [package homepage](https://mtes-mct.github.io/didor/) for more
 information and examples.

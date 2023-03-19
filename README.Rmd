@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg){target='_blank'}](https://www.repostatus.org/#wip)
-[![R-CMD-check](https://github.com/MTES-MCT/didor/workflows/R-CMD-check/badge.svg)](https://github.com/MTES-MCT/didor/actions)
+[![R-CMD-check](https://github.com/MTES-MCT/didor/workflows/R-CMD-check/badge.svg)](https://github.com/MTES-MCT/didor/actions/workflows/check-release.yaml)
 [![Codecov test coverage](https://codecov.io/gh/nbc/didor/branch/main/graph/badge.svg)](https://codecov.io/gh/nbc/didor?branch=main)
 <!-- badges: end -->
 
@@ -53,5 +53,8 @@ result <- datasets() %>%
 knitr::kable(head(result))
 ```
 
-See the [Tutorial (in french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html) and the [package homepage](https://mtes-mct.github.io/didor/)for more information and examples.
+See the [Tutorial (in
+french)](https://mtes-mct.github.io/didor/articles/premiers_pas.html) and the
+[package homepage](https://mtes-mct.github.io/didor/) for more information and
+examples.
 
