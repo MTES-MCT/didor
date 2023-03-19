@@ -5,7 +5,11 @@ Authors@R: c(
     person(given = "Nicolas",
            family = "Chuche",
            role = c("aut", "cre"),
-           email = "nicolas.chuche@developpement-durable.gouv.fr")
+           email = "nicolas.chuche@developpement-durable.gouv.fr"),
+    person(given = "Olivier",
+           family = "Chantrel",
+           role = c("ctb"),
+           email = "olivier.chantrel@developpement-durable.gouv.fr")
   )
 Description: Tools to download data from the CGDD/SDES database
     <https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html>

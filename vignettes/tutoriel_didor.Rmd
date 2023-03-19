@@ -1,6 +1,10 @@
 ---
-title: "Tutoriel {didor}"
-output: html_document
+title: "Tutoriel didor"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tutoriel didor}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -15,15 +19,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ### Catalogue
 
 On trouve ici le catalogue DIDO : <https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=explore&type=dataset&pagination=1&sortField=last_modified&sortOrder=desc>
-
-<details><summary>Catalogue DIDO</summary>
-
-```{r dido, include=TRUE, out.width="100%", echo=FALSE}  
-knitr::include_url("https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=explore&type=dataset&pagination=1&sortField=last_modified&sortOrder=desc")
-```  
-
-
-</details>
 
 ### Des jeux de données et des fichiers de données
 
@@ -42,34 +37,6 @@ Ces annexes commentent et précisent la nature des informations contenues dans l
 qui propose une documentation de prise en main :   
 <https://mtes-mct.github.io/didor/articles/premiers_pas.html>   
 
-
-### Installer {didor}
-
-Assurez-vous de disposer d'un proxy correctement configuré : qui permet de sortir sur Internet
-
-```{r proxy}
-Sys.getenv("http_proxy")
-Sys.getenv("https_proxy")
-
-```
-
-
-Pour le modifier :
-
-```
-Sys.setenv("HTTP_PROXY" = "http://votre_proxy")
-Sys.setenv("HTTPS_PROXY" = "http://votre_proxy_pour_le_https")
-```
-
-Ensuite, vous pouvez installer le package {didor}
-
-```
-install.packages("devtools")
-library(devtools)
-install_github("MTES-MCT/didor")
-library(didor)
-```
-
 ## Explorons
 
 Il va nous falloir des fonctions du tidyverse
@@ -78,52 +45,15 @@ Il va nous falloir des fonctions du tidyverse
 library(tidyverse)
 ```
 
-<details><summary>dplyr::filter() ou filter()</summary>
-
-### ah bin tient au passage (hors sujet mais fréquemment ennuyeux)
-
-Lorsqu'on veux utiliser **filter()** du package **{dplyr}** (inclu dans le {tidyverse})
-On est parfois embêté par la fonction **filter()** du package **{stats}**. 
-Qui, en plus en profite pour ne pas faire la même chose. Ca ne servirait à rien sinon !
-
-ça arrive lorsque **stats::filter()**  __cache__ **dplyr::filter()**
-
-Ce comportement est lié à l'ordre dans lequel les packages sont chargés dans l'environnement.
-Si {stats} est chargé après {dplyr} alors stats::filter() masquera dplyr::filter
-et vice et versa dans le cas contraire
-
-Généralement, le package {stats} est chargé avant {dplyr}, mais rien ne le prouve pas !
-Alors on pense que son script va bien s'exécuter comme d'habitude et ça plante...
-donc, désormais, pour ma part je remplace toujours cette fonction par dplyr::filter()
-et comme ça : pas de mauvaise surprise !
-
-exemple : la commande conflicts permet d'identifier les objets qui existent à différents endroits et qui portent le même nom, il en résulte que l'un des 2 (ou plus) est masqué !  
-
-```{r tidyverse_vs_stats_1}
-detach("package:tidyverse")
-detach("package:stats")
-library(tidyverse)  
-library(stats)
-conflicts(, detail=T)
-```
-  
-  
-</details>
-
 ### je voudrais la liste des jeux de données proposés
 
 ```{r datasets, warning=FALSE}
 tbl_dataset <- didor::datasets()
 ```
 
-
-<details><summary>résultat</summary>
-
 ```{r selection_dataset}
-knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
+knitr::kable(tbl_dataset[,c("title","spatial_granularity")] %>% head(5), format="html")
 ```
-
-</details>
 
 ### je voudrais la liste des fichiers de données proposés
 
@@ -136,14 +66,9 @@ J'ai envie d'écrire cela :
 tbl_datafile_itdd <- tbl_dataset %>% didor::datafiles()
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_datafile_2}
-knitr::kable(tbl_datafile_itdd[,c("title","description")] , format="html")
+knitr::kable(tbl_datafile_itdd[,c("title","description")] %>% head(5), format="html")
 ```
-
-</details>
-
 ---
 
 Trop de résultats au milieu de tous les fichiers de données !
@@ -158,13 +83,9 @@ tbl_dataset <- didor::datasets() %>%
   dplyr::filter(title %in% c("Indicateurs territoriaux de développement durable (ITDD)"))
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_2}
 knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
 ```
-
-</details>
 
 ---
 
@@ -175,13 +96,9 @@ tbl_dataset <- didor::datasets() %>%
   didor::dido_search("ITDD")
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_3}
 knitr::kable(tbl_dataset[,c("title","spatial_granularity")], format="html")
 ```
-
-</details>
 
 ---
 
@@ -193,13 +110,9 @@ tbl_datafile_itdd <- didor::datasets() %>%
   didor::datafiles()
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_4}
-knitr::kable(tbl_datafile_itdd[,c("title","description")], format="html")
+knitr::kable(tbl_datafile_itdd[,c("title","description")] %>% head(5), format="html")
 ```
-
-</details>
 
 ---
 
@@ -215,13 +128,9 @@ tbl_datafile_itdd <- didor::datasets() %>%
   didor::dido_search("Bourgogne-Franche-Comté")
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_5}
 knitr::kable(tbl_datafile_itdd[,c("title","description")], format="html")
 ```
-
-</details>
 
 ---
 
@@ -229,7 +138,6 @@ Et on le récupère : on le met dans un tibble.
 
 C'est quoi un tibble ?  
 <https://tibble.tidyverse.org/>
-
 
 Il est donc chargé en **mémoire** dans R.
 
@@ -247,13 +155,9 @@ tbl_datafile_itdd <- didor::datasets() %>%
 
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_6}
 knitr::kable(tbl_datafile_itdd %>% head(30) , format="html")
 ```
-
-</details>
 
 ---
 
@@ -266,36 +170,16 @@ knitr::kable(tbl_datafile_itdd %>% head(30) , format="html")
 
 #### paramètres
 
-didor::get_data() peut prendre un paramètre query.  
+didor::get_data() peut prendre un paramètre query et ce n'est qu'une requête écrite et passée à l'API.
 
-Et ce n'est qu'une requête écrite et passée à l'API.
-
-On trouve donc des informations qui permettent de s'y retrouver dans la documentation de l'API du fichier de données :
-
-<details><summary>résultat</summary>
-
-```{r dido_2, include=TRUE, out.width="100%", echo=FALSE}  
-knitr::include_url("https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=datafile&datafileRid=eb8b9bd5-8e50-4007-a869-948781aadeb3")
-```  
-
-
-</details>
+On trouve donc des informations qui permettent de s'y retrouver dans la [documentation de l'API du fichier de données](https://www.statistiques.developpement-durable.gouv.fr/catalogue?page=datafile&datafileRid=eb8b9bd5-8e50-4007-a869-948781aadeb3) :
 
 ---
 
 #### Les annexes
 
-Dans l'onglets métadonnées du fichier de données.  
-ou  
-Après les fichiers de données, dans le jeu de données.  
-
-On peut les consulter en ligne  
-ou  
-
-On peut directement les récupérer via didor::attachments()
-
-
-
+Dans l'onglets métadonnées du fichier de données ou  après les fichiers de données, dans le jeu de données.  
+On peut les consulter en ligne ou directement les récupérer via didor::attachments()
 
 ```{r tbl_attachment_6}
   tbl_attachment <- didor::datasets() %>%
@@ -310,22 +194,18 @@ On peut directement les récupérer via didor::attachments()
 **Les données sont toutes en chr** : pour les manipuler ce n'est pas forcément pratique.
 C'est néanmoins nécessaire, **pourquoi** ?
 
-Dans un datafile, une variable (colonne) numérique contient une valeur (en général) ...
-Si une valeur est manquante on trouve "n/a" qui correspond au NA bien connu dans R.
-Si une valeur est sous secret statistique, alors on trouve un "s"
-Donc dans DIDO, (numérique) est équivalent à (type numérique de R union "s")
+Dans un datafile, une variable (colonne) numérique contient une valeur qui peut
+être manquante. Le producteur de la donnée peut, s'il le souhaite, préciser la
+raison de l'absence. "secret" indiquera que la valeur sous secret statistique
+
+Donc dans DIDO, (numérique) est équivalent à (type numérique de R union "secret")
 Bref, en utilisant la fonction convert(), on supprime tout cela et on peut effectuer des opérations mathématiques.
-
-
-<details><summary>résultat</summary>
 
 ```{r selection_dataset_7}
 str(tbl_datafile_itdd)
 ```
-</details>
 
 Il suffit de les convertir avec la fonction convert()
-
 
 ```{r selection_datafile_61}
 tbl_datafile_itdd <- didor::datasets() %>%
@@ -342,13 +222,9 @@ tbl_datafile_itdd <- didor::datasets() %>%
 
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_81}
 str(tbl_datafile_itdd) 
 ```
-
-</details>
 
 #### Cherchons une correlation
 
@@ -372,13 +248,9 @@ result <- didor::datasets() %>%
   summarise_at(c("A2022","A2019"),sum,na.rm=T) 
 ```
 
-<details><summary>résultat</summary>
-
 ```{r selection_dataset_82}
-knitr::kable(result %>% head(30) , format="html")
+knitr::kable(result %>% head(5) , format="html")
 ```
-
-</details>
 
 En en faisant un nuage de points :
 
@@ -386,20 +258,19 @@ En en faisant un nuage de points :
 ggplot(result, aes(x=A2022, y=A2019)) + geom_point()
 ```
 
-
 #### eco-considérations
 
-Jusqu'à présent, rien n'est écrit sur disque, tout est en mémoire.  
-
-Les données sont récupérées, et transitent donc sur le réseau lorsqu'on fait un get_data()  
-
-Et les paramètres de la 'query' du get_data() filtrent et sélectionnent les données qui sont transférées.  
+Jusqu'à présent, rien n'est écrit sur disque, tout est en mémoire. Les données
+sont récupérées, et transitent donc sur le réseau lorsqu'on fait un get_data()
+et les paramètres de la 'query' du get_data() filtrent et sélectionnent les
+données qui sont transférées.
 
 Le filtrage/sélection s'effectue dans DIDO.  
 
-Si on avait tout récupéré sans filtrer/sélectionner on aurait envoyé environ 20 millions de lignes et un bon paquet de colonnes au travers du réseau.  
-
-ça aurait pris du temps... probablement planté... et consommé plein de ressources inutiles...  
+Si on avait tout récupéré sans filtrer/sélectionner on aurait envoyé environ 20
+millions de lignes et un bon paquet de colonnes au travers du réseau, ça aurait
+pris du temps... probablement planté... et consommé plein de ressources
+inutiles...
 
 Bref, filtrer/sélectionner au plus près de DIDO, c'est mieux !
 
@@ -407,8 +278,7 @@ Bref, filtrer/sélectionner au plus près de DIDO, c'est mieux !
 
 On peut utiliser {didor} dans une appli {shiny} un exemple avec les données NAMEA d'emission de GES
 
-
-```{r example_namea}
+```{r example_namea, eval = FALSE}
 library(shiny)
 library(didor)
 library(stringr)
@@ -483,45 +353,15 @@ options = list(width = "100%",height = 500)
 
 )
 # Run the application 
-#shinyApp(ui = ui, server = server)
+shinyApp(ui = ui, server = server)
 ```
-
-
-#### Pour aller plus loin : on peut aller chercher des données ailleurs
-
-Le package {didor} ne fait que simplifier la consommation de l'API mise à disposition par DIDO.
-
-Chaque fournisseur de données via API propose son propre système avec ses propres limitations.
-
-Les packages indispensables pour construire une interrogation d'une API sur R sont en général :
-
-- {httr} : pour faire des requetes http
-- {jsonlite} : pour interpréter les données reçues dans le format json
-
-à noter qu'il convient d'être prudent :
-
-- le fournisseur de l'api y a sans doute associé des limitations, pour éviter des sollicitations trop importantes qui casseraient le service fournit
-- il y a parfois des API qui nécessitent une authentification
-- qui limitent le nombre d'interrogation dans un laps de temps donné
-- qui paginent les données retournées
-- ....
-
-
-Il convient alors d'analyser précisément ce qu'il est possible de faire avec chaque API.
-D'une manière générale, interroger une API pour récupérer toutes les données lorsqu'il y en a beaucoup me semble une mauvaise idée, il est probablement plus intéressant de contacter le producteur de la donnée pour analyser la problématique.
-Certaines API permettent de ne récupérer que les données intégrées depuis une date donnée par exemple. Cela peut faire drastiquement diminuer la quantité de ressources nécessaire pour mettre à jour des données dont on disposerait par ailleurs...
-
 
 #### Crédits
 
-Merci à Nicolas Chuche pour la construction de {didor} et,  
-Merci à vous de vos retours sur son utilisation : nous vous invitons à ouvrir des issues dans github afin de nous permettre d'améliorer ce package : 
+Merci à Nicolas Chuche pour la construction de {didor} et merci à vous de vos
+retours sur son utilisation : nous vous invitons à ouvrir des issues dans github
+afin de nous permettre d'améliorer ce package :
 <https://github.com/MTES-MCT/didor/issues>
    
-     
-        
-          
 
-
-
-
+(et merci à Olivier Chantrel pour ce tutoriel !)
