@@ -45,6 +45,7 @@ extract_http_error <- function(resp) {
 #'
 #' @param url the url
 #' @param as text/NULL, return as text or as is
+#' @param file_name the file name used to cache download
 #'
 #' @return a didor_http_response with two fields:
 #'   * parsed content with the `as` parameter
@@ -57,9 +58,13 @@ extract_http_error <- function(resp) {
 #'   as = "text"
 #' )
 #' @keywords internal
-http_get <- function(url, as = NULL) {
+http_get <- function(url, as = NULL, file_name = NULL) {
   ua <- httr::user_agent(didor_user_agent)
-  response <- httr::GET(url, ua)
+  if (missing(file_name)) {
+    response <- httr::GET(url, ua)
+  } else {
+    response <- httr::GET(url, ua, file_name, httr::progress())
+  }
 
   if (httr::http_error(response)) {
     message <- c(paste0("Unable to get url ", httr::status_code(response)))
@@ -71,6 +76,7 @@ http_get <- function(url, as = NULL) {
     rlang::abort(message = message)
   }
   headers <- httr::headers(response) %||% NULL
+  if (!missing(file_name)) return(TRUE)
   structure(
     list(
       content = httr::content(response, as = as, encoding = "UTF-8"),
@@ -78,6 +84,23 @@ http_get <- function(url, as = NULL) {
     ),
     class = "didor_http_response"
   )
+}
+
+#' stringify_query
+#'
+#' @param data a query (named list)
+#'
+#' @return a string with only allowed char for file system name
+#'
+#' @noRd
+stringify_query <- function(data) {
+  if (length(data) == 0) return ("")
+
+  text <- paste(lapply(names(data),
+                       function(x) paste0(c(x, data[[x]]), collapse="=")),
+                collapse=";")
+  clean_text <- stringr::str_replace_all(text, regex("[^a-zA-Z0-9,;=_]"), "")
+  paste0("-", clean_text)
 }
 
 #' @export

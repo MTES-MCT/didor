@@ -4,12 +4,14 @@
 \alias{http_get}
 \title{Run HTTP GET request}
 \usage{
-http_get(url, as = NULL)
+http_get(url, as = NULL, file_name = NULL)
 }
 \arguments{
 \item{url}{the url}
 
 \item{as}{text/NULL, return as text or as is}
+
+\item{file_name}{the file name used to cache download}
 }
 \value{
 a didor_http_response with two fields:

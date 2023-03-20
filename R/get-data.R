@@ -15,6 +15,7 @@
 #' @param concat `TRUE`
 #' @param col_types how to convert columns, the default is to use char for all
 #'   columns `cols(.default = "c")`
+#' @param directory the directory to cache/save downloaded files. Default is `tempdir()`
 #'
 #' @return
 #'
@@ -39,10 +40,14 @@
 #' datafiles() %>%
 #'   dido_search("drom") %>%
 #'   get_data(query = c(DEPARTEMENT_CODE = "eq:971"))
+#' datafiles() %>%
+#'   dido_search("drom") %>%
+#'   get_data(query = c(DEPARTEMENT_CODE = "eq:971"), directory = tempdir())
 get_data <- function(data,
                      query = list(),
                      col_types = cols(.default = "c"),
-                     concat = TRUE) {
+                     concat = TRUE,
+                     directory = tempdir()) {
   if (missing(data)) {
     stop("argument is mandatory.")
   }
@@ -59,6 +64,9 @@ get_data <- function(data,
       return(list())
     }
   }
+
+  dir.create(directory, recursive = TRUE, showWarnings = FALSE)
+
   if (!"millesime" %in% names(data)) {
     mill <- last_millesime(data)
   } else {
@@ -71,7 +79,7 @@ get_data <- function(data,
   }
 
   millesime_keys <- select(mill, "rid", "millesime")
-  list_df <- pmap(millesime_keys, ~ get_csv(..1, ..2, query, col_types))
+  list_df <- pmap(millesime_keys, ~ get_csv(..1, ..2, query, col_types, directory = directory))
 
   columns <- millesimes(millesime_keys) %>%
     columns(quiet = TRUE)

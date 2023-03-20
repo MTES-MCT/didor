@@ -4,7 +4,13 @@
 \alias{get_data}
 \title{Get data}
 \usage{
-get_data(data, query = list(), col_types = cols(.default = "c"), concat = TRUE)
+get_data(
+  data,
+  query = list(),
+  col_types = cols(.default = "c"),
+  concat = TRUE,
+  directory = tempdir()
+)
 }
 \arguments{
 \item{data}{a tibble issued from \verb{datafiles() or a dataframe with two columns }rid\code{and}millesime`.}
@@ -16,6 +22,8 @@ values.}
 columns \code{cols(.default = "c")}}
 
 \item{concat}{\code{TRUE}}
+
+\item{directory}{the directory to cache/save downloaded files. Default is \code{tempdir()}}
 }
 \value{
 If concat is \code{TRUE} (default), return a tibble with all data concatenated in
@@ -47,4 +55,7 @@ datafiles() \%>\%
 datafiles() \%>\%
   dido_search("drom") \%>\%
   get_data(query = c(DEPARTEMENT_CODE = "eq:971"))
+datafiles() \%>\%
+  dido_search("drom") \%>\%
+  get_data(query = c(DEPARTEMENT_CODE = "eq:971"), directory = tempdir())
 }

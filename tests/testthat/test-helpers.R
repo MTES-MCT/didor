@@ -21,3 +21,14 @@ test_that("build_url works without params", {
     "path/my?size=user"
   )
 })
+
+test_that("stringify_query works", {
+  expect_equal(stringify_query(list()), "")
+
+  query <- c(columns = "DEPARTEMENT_CODE,ESSENCE_M3", DEPARTEMENT_CODE = "eq:971")
+  expect_equal(stringify_query(query), "-columns=DEPARTEMENT_CODE,ESSENCE_M3;DEPARTEMENT_CODE=eq971")
+
+  query <- list(columns = "DEPARTEMENT_CODE,ESSENCE_M3", DEPARTEMENT_CODE = "eq:971")
+  expect_equal(stringify_query(query), "-columns=DEPARTEMENT_CODE,ESSENCE_M3;DEPARTEMENT_CODE=eq971")
+
+})

@@ -82,7 +82,7 @@ get_metadata <- function(url = NULL) {
 #'
 #' @return a string
 #'
-#' @keywords internal
+#' @noRd
 concat_dataframe_col <- function(data, col) {
   if (is.null(data)) { return("") }
 

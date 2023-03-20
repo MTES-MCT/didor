@@ -6,7 +6,7 @@
 \alias{_PACKAGE}
 \title{didor: Tools to Explore and Download CGDD/SDES Opendata}
 \description{
-Tools to download data from the CGDD/SDES database <https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html> together with search and manipulation utilities.
+Tools to download data from the CGDD/SDES database \url{https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/apidoc.html} together with search and manipulation utilities.
 }
 \author{
 \strong{Maintainer}: Nicolas Chuche \email{nicolas.chuche@developpement-durable.gouv.fr}
