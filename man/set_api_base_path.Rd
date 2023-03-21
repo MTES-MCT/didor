@@ -24,5 +24,5 @@ set a new API base path to use
 }
 \examples{
 # to set some new path
-set_api_base_path("http://localhost/api/")
+set_api_base_path("http://localhost/api/v1")
 }

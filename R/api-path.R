@@ -47,7 +47,7 @@ get_api_base_path <- function() {
 #'
 #' @examples
 #' # to set some new path
-#' set_api_base_path("http://localhost/api/")
+#' set_api_base_path("http://localhost/api/v1")
 set_api_base_path <- function(path = NULL) {
   old_path <- get_api_base_path()
   clean_dido_env()
