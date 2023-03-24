@@ -43,6 +43,7 @@ result <- datasets() %>%
   datafiles() %>%
   dido_search("drom") %>%
   get_data()
+#> Downloading: 340 B     Downloading: 340 B     Downloading: 1.3 kB     Downloading: 1.3 kB     Downloading: 1.3 kB     Downloading: 1.3 kB     Downloading: 1.3 kB     Downloading: 1.3 kB
 knitr::kable(head(result))
 ```
 

@@ -24,7 +24,7 @@ a didor_http_response with two fields:
 Run HTTP GET request
 }
 \examples{
-http_get(
+result <- http_get(
   "https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/datasets?page=1&pageSize=10",
   as = "text"
 )

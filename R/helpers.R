@@ -53,7 +53,7 @@ extract_http_error <- function(resp) {
 #' @export
 #'
 #' @examples
-#' http_get(
+#' result <- http_get(
 #'   "https://data.statistiques.developpement-durable.gouv.fr/dido/api/v1/datasets?page=1&pageSize=10",
 #'   as = "text"
 #' )
