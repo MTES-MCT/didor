@@ -186,7 +186,7 @@ On peut les consulter en ligne ou directement les récupérer via didor::attachm
     didor::dido_search("ITDD") %>%
     didor::attachments() %>%
     didor::dido_search("6.01") %>%
-    didor::get_attachments()
+    didor::get_attachments(dest = tempdir())
 ```
 
 #### typage
