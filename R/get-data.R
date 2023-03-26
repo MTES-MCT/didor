@@ -35,8 +35,8 @@
 #'
 #' For caching, `get_data()` will use a reproductible name compose of the
 #' datafile identifier (rid) and the stringification of the query passed to
-#' `get_data()` of a query is passed.
-#'
+#' `get_data()` of a query is passed. It will verify compare cached data with
+#' API information before using it.
 #'
 #' @export
 #'
