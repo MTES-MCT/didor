@@ -273,6 +273,18 @@ inutiles...
 
 Bref, filtrer/sélectionner au plus près de DIDO, c'est mieux !
 
+Vous pouvez aussi voir dans les lignes au dessus :
+
+```
+## ℹ reading data from cache : /tmp/RtmpTvUDDK/eb8b9bd5-8e50-4007-a869-948781aadeb3-2023-01-columns=CODGEO_CODE,CODGEO_LIBELLE,A2019,A2018,A2017;VARIABLE=eqESO_PES_NB_TOT_CLAS4;NO_INDIC=eqi034b.csv
+```
+
+`get_data()` cache le résultat et le réutilise quand il peut (il va vérifier que
+le fichier est bien le dernier disponible par exemple). Par défaut, le cache
+utilisé est `tmpdir()` qui est valable uniquement le temps d'une session R. Si
+vous souhaitez réutilisez vos données au fil des sessions, précisez un
+répertoire de cache qui reste dans le temps.
+
 #### On peut faire du {shiny} avec {didor}
 
 On peut utiliser {didor} dans une appli {shiny} un exemple avec les données NAMEA d'emission de GES
