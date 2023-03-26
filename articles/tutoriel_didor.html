@@ -442,23 +442,22 @@ millésime)
 <span>    VARIABLE <span class="op">=</span> <span class="st">"eq:ESO_PES_NB_TOT_CLAS4"</span>,</span>
 <span>    NO_INDIC <span class="op">=</span><span class="st">"eq:i034b"</span></span>
 <span>  <span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> downloading data and caching to : /tmp/RtmpTvUDDK/eb8b9bd5-8e50-4007-a869-948781aadeb3-2023-01-columns=CODGEO_CODE,CODGEO_LIBELLE,A2019,A2018,A2017;VARIABLE=eqESO_PES_NB_TOT_CLAS4;NO_INDIC=eqi034b.csv</span></span></code></pre>
 <pre><code>## 
 Downloading: 10 B     
 Downloading: 10 B     
-Downloading: 10 B     
-Downloading: 10 B     
-Downloading: 2.8 kB     
-Downloading: 2.8 kB     
-Downloading: 2.8 kB     
-Downloading: 2.8 kB     
-Downloading: 2.8 kB     
-Downloading: 2.8 kB     
-Downloading: 9.8 kB     
-Downloading: 9.8 kB     
-Downloading: 9.8 kB     
-Downloading: 9.8 kB     
-Downloading: 9.8 kB     
-Downloading: 9.8 kB     
+Downloading: 3.2 kB     
+Downloading: 3.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 11 kB     
+Downloading: 11 kB     
 Downloading: 12 kB     
 Downloading: 12 kB     
 Downloading: 12 kB     
@@ -471,8 +470,12 @@ Downloading: 20 kB
 Downloading: 20 kB     
 Downloading: 20 kB     
 Downloading: 20 kB     
-Downloading: 20 kB     
-Downloading: 20 kB     
+Downloading: 21 kB     
+Downloading: 21 kB     
+Downloading: 21 kB     
+Downloading: 21 kB     
+Downloading: 25 kB     
+Downloading: 25 kB     
 Downloading: 28 kB     
 Downloading: 28 kB     
 Downloading: 28 kB     
@@ -487,7 +490,7 @@ Downloading: 31 kB
 Downloading: 31 kB     
 Downloading: 31 kB     
 Downloading: 31 kB</code></pre>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">tbl_datafile_itdd</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">30</span><span class="op">)</span> , format<span class="op">=</span><span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr>
@@ -1049,13 +1052,13 @@ de l’API du fichier de données</a> :</p>
 fichiers de données, dans le jeu de données.<br>
 On peut les consulter en ligne ou directement les récupérer via
 didor::attachments()</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span>  <span class="va">tbl_attachment</span> <span class="op">&lt;-</span> <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"ITDD"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/attachments.html">attachments</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"6.01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>    <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/get_attachments.html">get_attachments</a></span><span class="op">(</span>dest <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempdir</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## file downloaded: /tmp/Rtmpuiwt8S/dictionnaire-indicateurs-territoriaux-developpement-durable.xlsx</span></span></code></pre>
+<pre><code><span><span class="co">## file downloaded: /tmp/RtmpTvUDDK/dictionnaire-indicateurs-territoriaux-developpement-durable.xlsx</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="typage">typage<a class="anchor" aria-label="anchor" href="#typage"></a>
@@ -1070,7 +1073,7 @@ valeur sous secret statistique</p>
 <p>Donc dans DIDO, (numérique) est équivalent à (type numérique de R
 union “secret”) Bref, en utilisant la fonction convert(), on supprime
 tout cela et on peut effectuer des opérations mathématiques.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">tbl_datafile_itdd</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## tibble [3,700 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##  $ CODGEO_CODE   : chr [1:3700] "21001" "21002" "21003" "21004" ...</span></span>
@@ -1104,7 +1107,7 @@ tout cela et on peut effectuer des opérations mathématiques.</p>
 <span><span class="co">##   ..- attr(*, "type")= chr "number"</span></span>
 <span><span class="co">##   ..- attr(*, "converted")= logi FALSE</span></span></code></pre>
 <p>Il suffit de les convertir avec la fonction convert()</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">tbl_datafile_itdd</span> <span class="op">&lt;-</span> <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"ITDD"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -1116,54 +1119,8 @@ tout cela et on peut effectuer des opérations mathématiques.</p>
 <span>    NO_INDIC <span class="op">=</span><span class="st">"eq:i034b"</span></span>
 <span>  <span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/convert.html">convert</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code>## 
-Downloading: 10 B     
-Downloading: 10 B     
-Downloading: 3.2 kB     
-Downloading: 3.2 kB     
-Downloading: 8.2 kB     
-Downloading: 8.2 kB     
-Downloading: 8.2 kB     
-Downloading: 8.2 kB     
-Downloading: 8.2 kB     
-Downloading: 8.2 kB     
-Downloading: 11 kB     
-Downloading: 11 kB     
-Downloading: 11 kB     
-Downloading: 11 kB     
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 12 kB     
-Downloading: 16 kB     
-Downloading: 16 kB     
-Downloading: 16 kB     
-Downloading: 16 kB     
-Downloading: 16 kB     
-Downloading: 16 kB     
-Downloading: 20 kB     
-Downloading: 20 kB     
-Downloading: 25 kB     
-Downloading: 25 kB     
-Downloading: 25 kB     
-Downloading: 25 kB     
-Downloading: 25 kB     
-Downloading: 25 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 28 kB     
-Downloading: 30 kB     
-Downloading: 30 kB     
-Downloading: 31 kB     
-Downloading: 31 kB     
-Downloading: 31 kB     
-Downloading: 31 kB</code></pre>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> reading data from cache : /tmp/RtmpTvUDDK/eb8b9bd5-8e50-4007-a869-948781aadeb3-2023-01-columns=CODGEO_CODE,CODGEO_LIBELLE,A2019,A2018,A2017;VARIABLE=eqESO_PES_NB_TOT_CLAS4;NO_INDIC=eqi034b.csv</span></span></code></pre>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">tbl_datafile_itdd</span><span class="op">)</span> </span></code></pre></div>
 <pre><code><span><span class="co">## tibble [3,700 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
 <span><span class="co">##  $ CODGEO_CODE   : chr [1:3700] "21001" "21002" "21003" "21004" ...</span></span>
@@ -1202,7 +1159,7 @@ Downloading: 31 kB</code></pre>
 </h4>
 <p>Par exemple, entre la participation au présidentielles 2022 et le
 taux de 20/24 ans sortis non diplomés</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/datasets.html">datasets</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/dido_search.html">dido_search</a></span><span class="op">(</span><span class="st">"ITDD"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu">didor</span><span class="fu">::</span><span class="fu"><a href="../reference/datafiles.html">datafiles</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -1218,11 +1175,12 @@ taux de 20/24 ans sortis non diplomés</p>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">CODGEO_CODE</span>,<span class="va">A2022</span>,<span class="va">A2019</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">CODGEO_CODE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise_all.html" class="external-link">summarise_at</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A2022"</span>,<span class="st">"A2019"</span><span class="op">)</span>,<span class="va">sum</span>,na.rm<span class="op">=</span><span class="cn">T</span><span class="op">)</span> </span></code></pre></div>
+<pre><code><span><span class="co">## <span style="color: #00BBBB;">ℹ</span> downloading data and caching to : /tmp/RtmpTvUDDK/eb8b9bd5-8e50-4007-a869-948781aadeb3-2023-01-columns=VARIABLE,CODGEO_CODE,CODGEO_LIBELLE,A2022,A2019,A2017,A2013,A2012,A2007,A2002;VARIABLE=inpart_20_24_sortis_nondip,taux_participation.csv</span></span></code></pre>
 <pre><code>## 
 Downloading: 10 B     
 Downloading: 10 B     
-Downloading: 3.2 kB     
-Downloading: 3.2 kB     
+Downloading: 7 kB     
+Downloading: 7 kB     
 Downloading: 8.2 kB     
 Downloading: 8.2 kB     
 Downloading: 8.2 kB     
@@ -1231,24 +1189,24 @@ Downloading: 8.2 kB
 Downloading: 8.2 kB     
 Downloading: 8.2 kB     
 Downloading: 8.2 kB     
-Downloading: 11 kB     
-Downloading: 11 kB     
+Downloading: 8.2 kB     
+Downloading: 8.2 kB     
+Downloading: 15 kB     
+Downloading: 15 kB     
 Downloading: 16 kB     
 Downloading: 16 kB     
 Downloading: 16 kB     
 Downloading: 16 kB     
 Downloading: 16 kB     
 Downloading: 16 kB     
-Downloading: 19 kB     
-Downloading: 19 kB     
+Downloading: 23 kB     
+Downloading: 23 kB     
 Downloading: 25 kB     
 Downloading: 25 kB     
 Downloading: 25 kB     
 Downloading: 25 kB     
 Downloading: 25 kB     
 Downloading: 25 kB     
-Downloading: 27 kB     
-Downloading: 27 kB     
 Downloading: 28 kB     
 Downloading: 28 kB     
 Downloading: 28 kB     
@@ -1259,84 +1217,90 @@ Downloading: 31 kB
 Downloading: 31 kB     
 Downloading: 31 kB     
 Downloading: 31 kB     
-Downloading: 31 kB     
-Downloading: 31 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 39 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 47 kB     
-Downloading: 55 kB     
-Downloading: 55 kB     
-Downloading: 55 kB     
-Downloading: 55 kB     
-Downloading: 55 kB     
-Downloading: 55 kB     
+Downloading: 33 kB     
+Downloading: 33 kB     
+Downloading: 36 kB     
+Downloading: 36 kB     
+Downloading: 36 kB     
+Downloading: 36 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 37 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 45 kB     
+Downloading: 49 kB     
+Downloading: 49 kB     
+Downloading: 49 kB     
+Downloading: 49 kB     
+Downloading: 49 kB     
+Downloading: 49 kB     
+Downloading: 53 kB     
+Downloading: 53 kB     
 Downloading: 57 kB     
 Downloading: 57 kB     
 Downloading: 57 kB     
 Downloading: 57 kB     
-Downloading: 60 kB     
-Downloading: 60 kB     
-Downloading: 60 kB     
-Downloading: 60 kB     
-Downloading: 60 kB     
-Downloading: 60 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 68 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
-Downloading: 76 kB     
+Downloading: 57 kB     
+Downloading: 57 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 66 kB     
+Downloading: 66 kB     
+Downloading: 73 kB     
+Downloading: 73 kB     
+Downloading: 74 kB     
+Downloading: 74 kB     
+Downloading: 74 kB     
+Downloading: 74 kB     
+Downloading: 74 kB     
+Downloading: 74 kB     
+Downloading: 81 kB     
+Downloading: 81 kB     
 Downloading: 82 kB     
 Downloading: 82 kB     
 Downloading: 82 kB     
 Downloading: 82 kB     
-Downloading: 84 kB     
-Downloading: 84 kB     
+Downloading: 82 kB     
+Downloading: 82 kB     
 Downloading: 85 kB     
 Downloading: 85 kB     
 Downloading: 85 kB     
 Downloading: 85 kB     
 Downloading: 85 kB     
 Downloading: 85 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 93 kB     
-Downloading: 100 kB     
-Downloading: 100 kB     
-Downloading: 100 kB     
-Downloading: 100 kB     
+Downloading: 85 kB     
+Downloading: 85 kB     
+Downloading: 88 kB     
+Downloading: 88 kB     
+Downloading: 88 kB     
+Downloading: 88 kB     
+Downloading: 88 kB     
+Downloading: 88 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 96 kB     
+Downloading: 98 kB     
+Downloading: 98 kB     
 Downloading: 100 kB     
 Downloading: 100 kB     
 Downloading: 100 kB     
@@ -1363,8 +1327,6 @@ Downloading: 120 kB
 Downloading: 120 kB     
 Downloading: 120 kB     
 Downloading: 120 kB     
-Downloading: 130 kB     
-Downloading: 130 kB     
 Downloading: 130 kB     
 Downloading: 130 kB     
 Downloading: 130 kB     
@@ -1373,7 +1335,7 @@ Downloading: 130 kB
 Downloading: 130 kB     
 Downloading: 130 kB     
 Downloading: 130 kB</code></pre>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">result</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span> , format<span class="op">=</span><span class="st">"html"</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
 <thead><tr>
@@ -1446,18 +1408,18 @@ A2019
 </tbody>
 </table>
 <p>En en faisant un nuage de points :</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">result</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">A2022</span>, y<span class="op">=</span><span class="va">A2019</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="tutoriel_didor_files/figure-html/nuage-1.png" width="700"></p>
 </div>
 <div class="section level4">
 <h4 id="eco-considérations">eco-considérations<a class="anchor" aria-label="anchor" href="#eco-consid%C3%A9rations"></a>
 </h4>
-<p>Jusqu’à présent, rien n’est écrit sur disque, tout est en mémoire.
-Les données sont récupérées, et transitent donc sur le réseau lorsqu’on
-fait un get_data() et les paramètres de la ‘query’ du get_data()
-filtrent et sélectionnent les données qui sont transférées.</p>
-<p>Le filtrage/sélection s’effectue dans DIDO.</p>
+<p>Les données sont récupérées, et transitent donc sur le réseau
+lorsqu’on fait un <code><a href="../reference/get_data.html">get_data()</a></code> et les paramètres de la
+‘query’ du <code><a href="../reference/get_data.html">get_data()</a></code> filtrent et sélectionnent les données
+qui sont transférées.</p>
+<p>Le filtrage/sélection s’effectue dans DiDo.</p>
 <p>Si on avait tout récupéré sans filtrer/sélectionner on aurait envoyé
 environ 20 millions de lignes et un bon paquet de colonnes au travers du
 réseau, ça aurait pris du temps… probablement planté… et consommé plein
@@ -1469,7 +1431,7 @@ de ressources inutiles…</p>
 </h4>
 <p>On peut utiliser {didor} dans une appli {shiny} un exemple avec les
 données NAMEA d’emission de GES</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">didor</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
