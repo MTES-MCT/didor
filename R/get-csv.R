@@ -32,8 +32,8 @@ get_csv <- function(rid,
     delim = ";",
     locale = locale(decimal_mark = "."),
     col_types = col_types,
-    na = na,
-    col_select = if (is.null(cols)) everything() else all_of(cols)
+    na = na
+    #col_select = if (is.null(cols)) everything() else all_of(cols)
   )
   as_tibble(csv)
 }
