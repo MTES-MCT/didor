@@ -20,9 +20,11 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports: 
+    cli,
     dplyr,
     httr,
     jsonlite,
+    lubridate,
     magrittr,
     purrr,
     readr,

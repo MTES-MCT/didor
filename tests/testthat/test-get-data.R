@@ -1,4 +1,6 @@
-test_that("get_data works with last_millesime input", {
+cache_dir <- tempfile()
+
+test_that("get_data works and cache file", {
   skip_on_cran()
   skip_if_offline()
 
@@ -10,13 +12,22 @@ test_that("get_data works with last_millesime input", {
     arrange(rows) %>%
     slice_head()
   nb_of_rows <- data[["rows"]]
-  result <- get_data(data)
+
+  expect_message(
+    result <- get_data(data, cache = cache_dir),
+    regexp = "downloading data and caching to"
+  )
 
   expect_equal(nb_of_rows, nrow(result))
 
   for (col in names(result)) {
     expect_named(attributes(result[[col]]), c("name", "description", "unit", "type", "converted"))
   }
+
+  expect_message(
+    result <- get_data(data, cache = cache_dir),
+    regexp = "reading data from cache"
+  )
 })
 
 test_that("get_data works with datafiles input", {
@@ -31,7 +42,7 @@ test_that("get_data works with datafiles input", {
     arrange(rows) %>%
     slice_head()
   nb_of_rows <- data[["rows"]]
-  result <- get_data(data %>% select(rid))
+  result <- get_data(data %>% select(rid), cache = cache_dir)
 
   expect_equal(nb_of_rows, nrow(result))
 })
@@ -47,7 +58,7 @@ test_that("get_data works with concat FALSE", {
     last_millesime() %>%
     arrange(rows) %>%
     slice_head()
-  result <- get_data(data %>% select(rid), concat = FALSE)
+  result <- get_data(data %>% select(rid), concat = FALSE, cache = cache_dir)
 
   expect_output(str(result), "List of 1")
 
@@ -64,8 +75,8 @@ test_that("get_data returns NULL or list() when feeded empty tibble", {
 
   data <- datafiles() %>%
     dido_search("no such string will ever exists")
-  result_not_concat <- get_data(data %>% select(rid), concat = FALSE)
-  result_concat <- get_data(data %>% select(rid))
+  result_not_concat <- get_data(data %>% select(rid), concat = FALSE,  cache = cache_dir)
+  result_concat <- get_data(data %>% select(rid),  cache = cache_dir)
 
   expect_output(str(result_not_concat), "list()")
   expect_equal(result_concat, NULL)

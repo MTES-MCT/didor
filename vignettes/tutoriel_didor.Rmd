@@ -260,12 +260,11 @@ ggplot(result, aes(x=A2022, y=A2019)) + geom_point()
 
 #### eco-considérations
 
-Jusqu'à présent, rien n'est écrit sur disque, tout est en mémoire. Les données
-sont récupérées, et transitent donc sur le réseau lorsqu'on fait un get_data()
-et les paramètres de la 'query' du get_data() filtrent et sélectionnent les
-données qui sont transférées.
+Les données sont récupérées, et transitent donc sur le réseau lorsqu'on fait un
+`get_data()` et les paramètres de la 'query' du `get_data()` filtrent et
+sélectionnent les données qui sont transférées.
 
-Le filtrage/sélection s'effectue dans DIDO.  
+Le filtrage/sélection s'effectue dans DiDo.
 
 Si on avait tout récupéré sans filtrer/sélectionner on aurait envoyé environ 20
 millions de lignes et un bon paquet de colonnes au travers du réseau, ça aurait

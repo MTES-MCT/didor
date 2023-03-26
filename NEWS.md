@@ -2,8 +2,8 @@
 
 evol :
 
-* `get_data` now writes the downloaded csv files. Default is `tempdir()` but user can choose with 
-  `directory` argument.
+* `get_data()` now caches the downloaded csv files. Default is `tempdir()` but user can choose with 
+  `directory` argument to keep them over sessions
 * add a new tutorial (credit to Olivier Chantrel)
 
 minor :

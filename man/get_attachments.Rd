@@ -10,7 +10,7 @@ get_attachments(data, dest = NULL)
 \item{data}{tibble of datasets as given by \code{attachments()}.
 Must contains an \code{id} column}
 
-\item{dest}{a directory to write files}
+\item{dest}{directory to write files}
 }
 \description{
 download attachments

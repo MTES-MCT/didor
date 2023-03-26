@@ -2,7 +2,7 @@
 #'
 #' @param data tibble of datasets as given by `attachments()`.
 #'        Must contains an `id` column
-#' @param dest a directory to write files
+#' @param dest directory to write files
 #'
 #' @export
 #'

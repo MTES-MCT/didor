@@ -9,7 +9,7 @@ get_data(
   query = list(),
   col_types = cols(.default = "c"),
   concat = TRUE,
-  directory = tempdir()
+  cache = tempdir()
 )
 }
 \arguments{
@@ -21,26 +21,33 @@ values.}
 \item{col_types}{how to convert columns, the default is to use char for all
 columns \code{cols(.default = "c")}}
 
-\item{concat}{\code{TRUE}}
+\item{concat}{\code{TRUE} if \code{TRUE}, returns a tibble with all data concatenated in one tibble, else returns a list of tibbles.}
 
-\item{directory}{the directory to cache/save downloaded files. Default is \code{tempdir()}}
+\item{cache}{the directory to cache/save downloaded files. Default is \code{tempdir()}}
 }
 \value{
 If concat is \code{TRUE} (default), return a tibble with all data concatenated in
 one tibble.
 If concat is \code{FALSE}, return a list of tibbles.
 
-\code{get_data()} returns only chr
+\code{get_data()} returns only chr columns. Use \code{convert} to convert columns to good types.
 }
 \description{
-Get the data of the last millesime of all the datafiles found in data. All
-columns are returned as \code{chr} (see below).
-}
-\details{
-You can use \code{convert()} to convert number and integer.
+Get the data of the last millesime of all the datafiles found in data. All columns are returned as \code{chr} (see below). \cr
 
 For private life reason, data returned by DiDo can be secretize (the value is
-replaced by the string "secret") so readr can't determine data type.
+replaced by the string "secret") so readr can't determine data type. You can
+use \code{convert()} to convert number and integer.
+
+get_data cache data before loading it. By default it saves the files
+in \code{tempdir()}. If you downloaded the same data again, il will first try to
+find it in the \code{cache} argument. If you want to cache data between
+session, don't keep the default but use your own directory.
+}
+\details{
+For caching, \code{get_data()} will use a reproductible name compose of the
+datafile identifier (rid) and the stringification of the query passed to
+\code{get_data()} of a query is passed.
 }
 \examples{
 # get all columns
@@ -57,5 +64,5 @@ datafiles() \%>\%
   get_data(query = c(DEPARTEMENT_CODE = "eq:971"))
 datafiles() \%>\%
   dido_search("drom") \%>\%
-  get_data(query = c(DEPARTEMENT_CODE = "eq:971"), directory = tempdir())
+  get_data(query = c(DEPARTEMENT_CODE = "eq:971"), cache = tempdir())
 }
